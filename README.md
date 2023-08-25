@@ -31,7 +31,7 @@ From the createthread i deleted the check for button press on t or L and i wrote
 
 - Rebuild the nd_koth script so you can config everything!
 
-- Make ymap for every team!
+- Make maps for every team!
 
 - Some kind of inventory when you buy weapon! (only 3 items! Like everry other koth server!)
 
