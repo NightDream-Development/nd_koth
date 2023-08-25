@@ -1,0 +1,6 @@
+AddEventHandler('onClientMapStart', function()
+	Citizen.Trace("RP: Disabling autospawn...")
+	exports.spawnmanager:setAutoSpawn(false)
+	exports.spawnmanager:spawnPlayer()
+	Citizen.Trace("RP: Autospawn disabled!")
+end)

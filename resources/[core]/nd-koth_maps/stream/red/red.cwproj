@@ -1,0 +1,19 @@
+<CodeWalkerProject>
+  <Name>koth_map_red</Name>
+  <Version value="1" />
+  <YmapFilenames>
+    <Item>map1.ymap</Item>
+    <Item>apa_ch2_04_strm_1.ymap</Item>
+  </YmapFilenames>
+  <YtypFilenames />
+  <YbnFilenames />
+  <YndFilenames />
+  <YnvFilenames />
+  <TrainsFilenames />
+  <ScenarioFilenames />
+  <AudioRelFilenames />
+  <YdrFilenames />
+  <YddFilenames />
+  <YftFilenames />
+  <YtdFilenames />
+</CodeWalkerProject>
