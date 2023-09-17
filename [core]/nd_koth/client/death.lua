@@ -25,7 +25,7 @@ AddEventHandler('koth:revive', function(cteam)
             end
         else
             if sourceteam == 'green' then
-                SetEntityCoords(cache.ped, 63.0629, -1572.7197, 29.5978)
+                SetEntityCoords(cache.ped, green.spawncoords)
                 local model = 's_m_y_marine_01'
                 if IsModelInCdimage(model) and IsModelValid(model) then
                     RequestModel(model)
