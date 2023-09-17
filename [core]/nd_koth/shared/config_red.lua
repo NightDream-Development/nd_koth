@@ -23,4 +23,4 @@ red.weaponshoplabel = 'Fegyver Bolt'
 
 
 --Spawn coordinates
-redspawncoords = {x = 650.5582,y = 622.8670,z = 646.4577,rotation = 128.9109}
+redspawncoords = {x = 650.5582,y = 622.8670,z = 129.4577,rotation = 128.9109}
