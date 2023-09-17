@@ -68,4 +68,14 @@ RegisterNuiCallback("time_expired", function(data)
     dead = false
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(500)
+        local health = GetEntityHealth(cache.ped)
+        if health <= 0 then
+            TriggerEvent('lss-basicdeath:client:SetPlayerDead')
+        end
+    end
+end)
+
 
