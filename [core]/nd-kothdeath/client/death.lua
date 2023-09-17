@@ -73,7 +73,12 @@ Citizen.CreateThread(function()
         Citizen.Wait(500)
         local health = GetEntityHealth(cache.ped)
         if health <= 0 then
+            if dead then
+                Wait(500)
+            else
+                dead = true
             TriggerEvent('lss-basicdeath:client:SetPlayerDead')
+            ens
         end
     end
 end)
