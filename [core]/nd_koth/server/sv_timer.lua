@@ -1,13 +1,11 @@
-local timer = 50 * 60
-
 Citizen.CreateThread(function()
-    while timer > 0 do
+    while Config.MatchRound > 0 do
         Citizen.Wait(1000)
         
-        timer = timer - 1
+        Config.MatchRound = Config.MatchRound - 1
         
-        local minutes = math.floor(timer / 60)
-        local seconds = timer % 60
+        local minutes = math.floor(Config.MatchRound / 60)
+        local seconds = Config.MatchRound % 60
         print(minutes..':'..seconds)
         TriggerClientEvent('koth:ui:timeupdate', -1, minutes..':'..seconds)
     end

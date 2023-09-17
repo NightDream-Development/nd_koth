@@ -1,3 +1,4 @@
+red = {}
 --save zone
 red.savezone = vector3(650.3895, 644.9913, 128.9109)
 
