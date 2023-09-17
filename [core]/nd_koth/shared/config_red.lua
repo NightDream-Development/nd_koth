@@ -1,4 +1,5 @@
 red = {}
+
 --save zone
 red.savezone = vector3(650.3895, 644.9913, 128.9109)
 
@@ -22,4 +23,4 @@ red.weaponshoplabel = 'Fegyver Bolt'
 
 
 --Spawn coordinates
-red.spawncoords = '650.5582, 646.4577, 128.9109'
+red.spawncoords = "650.5582, 646.4577, 128.9109"
