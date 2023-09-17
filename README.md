@@ -15,7 +15,7 @@
 
 ## Optimizations
 
-We were having problems with the chat opening so i rewrote/edited some stuff in chatr client side mainly 'cl_chat.lua'!
+We were having problems with the chat opening so i rewritten/edited some stuff in chat client side mainly 'cl_chat.lua'!
 
 From the createthread i deleted the check for button press on t or L and i wrote the ox_lib to open a menu on the L button and for T did the same thing but that just runs the function for opening the chat!
 
