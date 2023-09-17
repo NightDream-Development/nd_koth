@@ -41,13 +41,13 @@ AddEventHandler('koth:revive', function(cteam)
     end
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(500)
-        local health = GetEntityHealth(cache.ped)
-        if health <= 0 then
-            Wait(1000)
-            TriggerEvent('koth:revive')
-        end
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Citizen.Wait(500)
+--         local health = GetEntityHealth(cache.ped)
+--         if health <= 0 then
+--             Wait(1000)
+--             TriggerEvent('koth:revive')
+--         end
+--     end
+-- end)
