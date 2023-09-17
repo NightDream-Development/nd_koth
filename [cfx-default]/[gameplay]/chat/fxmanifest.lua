@@ -2,6 +2,7 @@
 -- Altering or recreating for local use only is strongly discouraged.
 
 version '1.0.0'
+lua54 'yes'
 author 'Cfx.re <root@cfx.re>'
 description 'Provides baseline chat functionality using a NUI-based interface.'
 repository 'https://github.com/citizenfx/cfx-server-data'
