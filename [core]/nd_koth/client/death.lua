@@ -41,6 +41,8 @@ AddEventHandler('koth:revive', function(cteam)
     end
 end)
 
+
+--removed koth death
 -- Citizen.CreateThread(function()
 --     while true do
 --         Citizen.Wait(500)
