@@ -10,7 +10,7 @@ Citizen.CreateThread(function()
     while true do
         --print(sourceteam)
         if sourceteam == 'green' then
-        Citizen.Wait(1000) -- Adjust the interval as needed
+        Citizen.Wait(2000) -- Adjust the interval as needed
 
         local playerId = PlayerId()
         local playerPed = GetPlayerPed(playerId)

@@ -10,7 +10,7 @@ end
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(1000)
+        Citizen.Wait(2000)
 
         local playerPed = PlayerPedId()
         local playerCoords = GetEntityCoords(playerPed)
@@ -27,7 +27,7 @@ local previousInRadius = false
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(1000)
+        Citizen.Wait(2000)
         if inradius ~= previousInRadius then
             previousInRadius = inradius
             if inradius then

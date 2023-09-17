@@ -1,9 +1,9 @@
-CreateThread(function()
-    while true do
-        print(zoneteam)
-        Wait(1000)
-    end
-end)
+-- CreateThread(function()
+--     while true do
+--         --print(zoneteam)
+--         Wait(1000)
+--     end
+-- end)
 zoneteam = Senki
 
 RegisterNetEvent('koth:ui:kingupdate')
