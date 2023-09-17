@@ -1,7 +1,7 @@
 RegisterNetEvent('koth:revive')
 AddEventHandler('koth:revive', function(cteam)
     if sourceteam == 'red' then
-        SetEntityCoords(cache.ped, 650.5582, 646.4577, 128.9109)
+        SetEntityCoords(cache.ped, red.spawncoords)
         local model = 'csb_mweather'
         if IsModelInCdimage(model) and IsModelValid(model) then
             RequestModel(model)

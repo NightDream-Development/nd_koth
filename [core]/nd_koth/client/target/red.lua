@@ -1,22 +1,16 @@
 function spawncartargetred()
-    local NPC = {
-        x = 662.4230,
-        y = 622.8670,
-        z = 128.9111,
-        rotation = 67.4852,
-        NetworkSync = true
-    }
-    lib.requestModel("mp_m_bogdangoon")
-    Ped = CreatePed(1, "mp_m_bogdangoon", NPC.x, NPC.y, NPC.z - 1, false)
+
+    lib.requestModel(red.carshopped)
+    Ped = CreatePed(1, red.carshopped, redcarshop.x, redcarshop.y, redcarshop.z - 1, false)
     FreezeEntityPosition(Ped, true)
     SetEntityInvincible(Ped, true)
     SetBlockingOfNonTemporaryEvents(Ped, true)
-    SetEntityHeading(Ped, NPC.rotation)
+    SetEntityHeading(Ped, redcarshop.rotation)
     local vehicleshop = {
       {
               name = 'carshop',
               icon = 'fas fa-car',
-              label = 'katalógus megnézése',
+              label = red.carshoplabel,
               onSelect = function()
                   TriggerEvent('koth:openvehiclehop')
               end,
@@ -31,25 +25,18 @@ function spawncartargetred()
 end
 
 function spawnweapontargetred()
-    local NPC2 = {
-        x = 664.7071,
-        y = 602.9047,
-        z = 129.0509,
-        rotation = 68.7576,
-        NetworkSync = true
-    }
-    lib.requestModel("mp_m_bogdangoon")
-    Ped = CreatePed(1, "mp_m_bogdangoon", NPC2.x, NPC2.y, NPC2.z - 1, false)
+    lib.requestModel(red.carshopped)
+    Ped = CreatePed(1, red.carshopped, redweaponshop.x, redweaponshop.y, redweaponshop.z - 1, false)
     FreezeEntityPosition(Ped, true)
     SetEntityInvincible(Ped, true)
     SetBlockingOfNonTemporaryEvents(Ped, true)
     TaskStartScenarioInPlace(Ped, "WORLD_HUMAN_GUARD_STAND_CASINO", 0, true)
-    SetEntityHeading(Ped, NPC2.rotation)
+    SetEntityHeading(Ped, redweaponshop.rotation)
     local weaponshop = {
       {
         name = 'carshop',
         icon = 'fa-solid fa-person-rifle',
-        label = 'Fegyver bolt megnyitása',
+        label = red.weaponshoplabel,
         onSelect = function()
             TriggerEvent('koth:openweaponshop')
         end,
