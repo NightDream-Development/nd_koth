@@ -18,6 +18,7 @@ client_scripts {
 --Both server and client sided scripts
 shared_script {
   '@ox_lib/init.lua',
+  'shared/*.lua'
 }
 
 --Server sided scripts
