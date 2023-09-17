@@ -11,7 +11,8 @@ AddEventHandler('koth:setcteam', function(cteam)
     --print(sourceteam)
     blipspawn()
     if sourceteam == 'red' then
-        SetEntityCoords(cache.ped, red.spawncoords)
+        devprint('teleport', redspawncoords)
+        SetEntityCoords(cache.ped, redspawncoords.x, redspawncoords.y, redspawncoords.z)
         local model = 'csb_mweather'
         if IsModelInCdimage(model) and IsModelValid(model) then
             RequestModel(model)
@@ -39,7 +40,8 @@ AddEventHandler('koth:setcteam', function(cteam)
             bluespawncartarget()
         else
             if sourceteam == 'green' then
-                SetEntityCoords(cache.ped, green.spawncoords)
+                devprint('teleport', greenspawncoords)
+                SetEntityCoords(cache.ped, greenspawncoords.x, greenspawncoords.y, greenspawncoords.z)
                 local model = 's_m_y_marine_01'
                 if IsModelInCdimage(model) and IsModelValid(model) then
                     RequestModel(model)
