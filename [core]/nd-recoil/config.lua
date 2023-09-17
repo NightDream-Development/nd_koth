@@ -1,5 +1,5 @@
 Config = {}
-Config.maxspread = 1.0
+Config.maxspread = 0.2
 Config.recoils = {
 -- Handguns
 	[453432689] = 0.3, --['weapon_pistol']

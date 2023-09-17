@@ -29,7 +29,7 @@ CreateThread(function()
 				end
 			end
 		else
-			Wait(5000)
+			Wait(100)
 		end
 		Wait(10)
 	end
@@ -45,7 +45,7 @@ CreateThread(function()
 				_, cAmmo = GetAmmoInClip(cache.ped, wep)
 				if Config.recoils[wep] and Config.recoils[wep] ~= 0 then
 					local tv = 0
-					local spread = math.random() * 2 * math.pi
+					local spread = math.random() * 1 * math.pi
 					local radius = math.sqrt(math.random()) * Config.maxspread
 					local xSpread = radius * math.cos(spread)
 					local ySpread = radius * math.sin(spread)
@@ -70,11 +70,11 @@ CreateThread(function()
 						until tv >= Config.recoils[wep]
 					end
 					SetGameplayCamRelativeHeading(GetGameplayCamRelativeHeading() + xSpread) -- add x and y spread values to camera heading and pitch
-					SetGameplayCamRelativePitch(GetGameplayCamRelativePitch() + ySpread, 1.0)
+					--SetGameplayCamRelativePitch(GetGameplayCamRelativePitch() + ySpread, 1.0)
 				end
 			end
 		else
-			Wait(1000)
+			Wait(10)
 		end
 		Wait(10)
 	end

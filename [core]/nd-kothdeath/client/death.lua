@@ -78,7 +78,7 @@ Citizen.CreateThread(function()
             else
                 dead = true
             TriggerEvent('lss-basicdeath:client:SetPlayerDead')
-            ens
+            end
         end
     end
 end)
