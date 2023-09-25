@@ -14,17 +14,8 @@ Citizen.CreateThread(function()
     SetNuiFocus(false, false)
     while true do
         Citizen.Wait(0)
-
         -- Update the UI with the latest inventory data
         SendNUIText("updateInventory", inventorySlots)
-
-        -- Handle keybindings to switch between slots and use items.
-        if IsControlJustPressed(0, 157) then -- Key 1 for primary weapon
-        elseif IsControlJustPressed(0, 158) then -- Key 2 for secondary weapon
-            GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
-            inventorySlots.secondaryWeapon = nil
-        end
-
         -- Disable weapon wheel (optional)
         HideHudComponentThisFrame(19) -- Weapon wheel
 
