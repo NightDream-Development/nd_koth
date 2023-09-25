@@ -31,6 +31,13 @@ Citizen.CreateThread(function()
     end
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+            DisableControlAction(0, 37, true)
+    end
+end)
+
 -- Function to send NUI (HTML) messages
 function SendNUIText(action, data)
     SendNUIMessage({
