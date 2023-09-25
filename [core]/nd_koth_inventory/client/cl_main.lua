@@ -63,7 +63,8 @@ exports("removeinv", function()
     inventorySlots.primaryWeapon = nil
     inventorySlots.secondaryWeapon = nil
     inventorySlots.throwables = nil
-
+    RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+    RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
     TriggerEvent("updateInventory", inventorySlots)
 end)
 
