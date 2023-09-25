@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add custom CSS styles here to enhance your UI */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory</h1>
+        <!-- Primary Weapon Slot -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Primary Weapon</h5>
+                        <p class="card-text" id="primaryWeapon"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Weapon Slot -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Secondary Weapon</h5>
+                        <p class="card-text" id="secondaryWeapon"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Items Slots (You can add more as needed) -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Custom Item 1</h5>
+                        <p class="card-text" id="customItem1"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Throwable Slots (You can add more as needed) -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Throwable 1</h5>
+                        <p class="card-text" id="throwable1"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS for enhanced functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to update the inventory slots with data from Lua
+        function updateInventory(data) {
+            for (const slot in data) {
+                const slotElement = document.getElementById(slot);
+                if (slotElement) {
+                    slotElement.textContent = data[slot] || "Empty";
+                }
+            }
+        }
+
+        // Listen for messages from Lua
+        window.addEventListener('message', (event) => {
+            const data = event.data;
+            if (data.type === 'updateInventory') {
+                updateInventory(data.inventoryData);
+            }
+        });
+    </script>
+</body>
+</html>
