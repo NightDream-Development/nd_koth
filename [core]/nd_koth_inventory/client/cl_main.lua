@@ -61,6 +61,7 @@ exports("AddWeaponToInventory", function(what,weaponName)
                     inventorySlots.throwables = weaponName
                 end
             end
+        end
     
         -- Trigger an event to update the UI
         TriggerEvent("updateInventory", inventorySlots)
