@@ -106,3 +106,24 @@ lib.addKeybind({
     end
 end
 })
+
+
+throw = false
+lib.addKeybind({
+    name = '3',
+    description = 'Throwables',
+    defaultKey = '3',
+    onReleased = function(self)
+        if not throw then
+        primary = false
+        second = false
+        RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+        RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+        GiveWeaponToPlayer(inventorySlots.throwables)
+        throw = true
+        else
+            throw = false
+            RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
+    end
+end
+})
