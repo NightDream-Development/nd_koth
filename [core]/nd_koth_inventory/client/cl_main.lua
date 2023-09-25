@@ -46,9 +46,8 @@ function GiveWeaponToPlayer(weaponName)
 end
 
 -- Exported function to add a weapon to the inventory
+--example exports.nd_koth_inventory:AddWeaponToInventory(3, "WEAPON_GRENADE")
 exports("AddWeaponToInventory", function(what,weaponName)
-        -- You can add logic here to determine which slot to add the weapon to
-    -- For simplicity, let's assume we always add to the primary weapon slot
     if what == 1 then
         inventorySlots.primaryWeapon = weaponName
     elseif what == 2 then
@@ -57,8 +56,15 @@ exports("AddWeaponToInventory", function(what,weaponName)
         inventorySlots.throwables = weaponName
     end
     
-        -- Trigger an event to update the UI
         TriggerEvent("updateInventory", inventorySlots)
+end)
+--example exports.nd_koth_inventory:removeinv()
+exports("removeinv", function()
+    inventorySlots.primaryWeapon = nil
+    inventorySlots.secondaryWeapon = nil
+    inventorySlots.throwables = nil
+
+    TriggerEvent("updateInventory", inventorySlots)
 end)
 
 
