@@ -54,7 +54,13 @@ exports("AddWeaponToInventory", function(what,weaponName)
     if what == 1 then
     inventorySlots.primaryWeapon = weaponName
     else
-
+        if what == 2 then
+            inventorySlots.secondaryWeapon = weaponName
+        else
+            if what == 3 then
+                inventorySlots.throwables = weaponName
+            end
+        end
 
     -- Trigger an event to update the UI
     TriggerEvent("updateInventory", inventorySlots)
