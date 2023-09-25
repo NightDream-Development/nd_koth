@@ -79,6 +79,7 @@ lib.addKeybind({
             RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
             primary = false
     end
+end
 })
 
 second = false
@@ -94,4 +95,5 @@ lib.addKeybind({
             second = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
     end
+end
 })
