@@ -13,13 +13,12 @@ client_scripts {
 
 --Both server and client sided scripts
 shared_script {
-  'shared/*.*',
   '@ox_lib/init.lua',
 }
 
 --Server sided scripts
-server_scripts {
-  'server/*.lua',
-}
+-- server_scripts {
+--   'server/*.lua',
+-- }
 
 ui_page 'UI/index.html'
