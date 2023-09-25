@@ -6,17 +6,23 @@
     <!-- Include Bootstrap CSS for styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
+  body {
             background-color: rgba(0, 0, 0, 0);
         }
-        container {
-            left: 90%;
+        .card {
+            margin-bottom: 10px; /* Add some spacing between card boxes */
+        }
+        .card-columns {
+            column-count: 2; /* Display card boxes in two columns */
+            column-gap: 10px; /* Add some spacing between columns */
+            position: absolute;
+            bottom: 0;
+            left: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Inventory</h1>
         <!-- Primary Weapon Slot -->
         <div class="row">
             <div class="col">
