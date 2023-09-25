@@ -71,6 +71,8 @@ lib.addKeybind({
     defaultKey = '1',
     onReleased = function(self)
         if not primary then
+        second = false
+        RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
         GiveWeaponToPlayer(inventorySlots.primaryWeapon)
         primary = true
         else
@@ -87,6 +89,8 @@ lib.addKeybind({
     defaultKey = '2',
     onReleased = function(self)
         if not second then
+        primary = false
+        RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
         GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
         second = true
         else
