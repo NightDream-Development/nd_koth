@@ -11,6 +11,7 @@ AddEventHandler("updateInventory", function(updatedInventory)
 end)
 
 Citizen.CreateThread(function()
+    SetNuiFocus(false, false)
     while true do
         Citizen.Wait(0)
 
@@ -32,7 +33,6 @@ end)
 
 -- Function to send NUI (HTML) messages
 function SendNUIText(action, data)
-    SetNuiFocus(true, true)
     SendNUIMessage({
         type = action,
         inventoryData = data
