@@ -49,21 +49,21 @@ end
 
 -- Exported function to add a weapon to the inventory
 exports("AddWeaponToInventory", function(what,weaponName)
-    -- You can add logic here to determine which slot to add the weapon to
+        -- You can add logic here to determine which slot to add the weapon to
     -- For simplicity, let's assume we always add to the primary weapon slot
     if what == 1 then
-    inventorySlots.primaryWeapon = weaponName
-    else
-        if what == 2 then
-            inventorySlots.secondaryWeapon = weaponName
+        inventorySlots.primaryWeapon = weaponName
         else
-            if what == 3 then
-                inventorySlots.throwables = weaponName
+            if what == 2 then
+                inventorySlots.secondaryWeapon = weaponName
+            else
+                if what == 3 then
+                    inventorySlots.throwables = weaponName
+                end
             end
-        end
-
-    -- Trigger an event to update the UI
-    TriggerEvent("updateInventory", inventorySlots)
+    
+        -- Trigger an event to update the UI
+        TriggerEvent("updateInventory", inventorySlots)
 end)
 
 
