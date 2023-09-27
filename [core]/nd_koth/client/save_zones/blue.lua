@@ -1,5 +1,5 @@
 local isInCombatZone = false
-local combatZoneCenter = vector3(-2076.2869, -325.5544, 13.1584)
+local combatZoneCenter = blue.savezone
 local combatZoneRadius = 150.0 
 devprint('savezone', 'loaded savezone for blue team!')
 function IsPlayerInCombatZone(playerCoords)

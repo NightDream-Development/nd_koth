@@ -36,8 +36,8 @@ AddEventHandler('koth:setcteam', function(cteam)
                 SetPlayerModel(PlayerId(), model)
                 SetModelAsNoLongerNeeded(model)
             end
-            bluespawnweapontarget()
-            bluespawncartarget()
+            spawnweapontargetblue()
+            spawncartargetblue()
         else
             if sourceteam == 'green' then
                 --devprint('teleport', greenspawncoords)
