@@ -1,7 +1,7 @@
 RegisterNetEvent('koth:revive')
 AddEventHandler('koth:revive', function(cteam)
     if sourceteam == 'red' then
-        SetEntityCoords(cache.ped, red.spawncoords)
+        SetEntityCoords(cache.ped, redspawncoords.x, redspawncoords.y, redspawncoords.z)
         local model = 'csb_mweather'
         if IsModelInCdimage(model) and IsModelValid(model) then
             RequestModel(model)
@@ -13,7 +13,7 @@ AddEventHandler('koth:revive', function(cteam)
         end
     else
         if sourceteam == 'blue' then
-            SetEntityCoords(cache.ped, -2078.9465, -327.4488, 13.1342)
+            SetEntityCoords(cache.ped, bluespawncoords.x, bluespawncoords.y, bluespawncoords.z)
             local model = 'csb_ramp_marine'
             if IsModelInCdimage(model) and IsModelValid(model) then
                 RequestModel(model)
