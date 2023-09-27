@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Raw Text Fetch</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      min-height: 100vh;
+      background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    }
+    #info {
+      margin: 10px;
+      background-color: rgba(255, 255, 255, 0);
+      color: rgba(255, 255, 255, 0.266);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <pre id="textFromGitHub">Betöltés...</pre>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
