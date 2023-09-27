@@ -33,6 +33,7 @@ CreateThread(function()
 			Config.maxspread = 0.2
 		end
 		Wait(10)
+		Config.maxspread = 0.2
 	end
 end)
 
@@ -80,5 +81,6 @@ CreateThread(function()
 			Config.maxspread = 0.2
 		end
 		Wait(10)
+		Config.maxspread = 0.2
 	end
 end)
