@@ -30,6 +30,7 @@ CreateThread(function()
 			end
 		else
 			Wait(100)
+			Config.maxspread = 0.2
 		end
 		Wait(10)
 	end
@@ -70,11 +71,13 @@ CreateThread(function()
 						until tv >= Config.recoils[wep]
 					end
 					SetGameplayCamRelativeHeading(GetGameplayCamRelativeHeading() + xSpread) -- add x and y spread values to camera heading and pitch
-					--SetGameplayCamRelativePitch(GetGameplayCamRelativePitch() + ySpread, 1.0)
+					SetGameplayCamRelativePitch(GetGameplayCamRelativePitch() + ySpread, 1.0)
+					Config.maxspread = Config.maxspread  + 1
 				end
 			end
 		else
 			Wait(10)
+			Config.maxspread = 0.2
 		end
 		Wait(10)
 	end
