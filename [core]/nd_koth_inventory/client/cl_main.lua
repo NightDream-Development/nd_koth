@@ -1,7 +1,7 @@
 local inventorySlots = {
-    label1 = '',
-    label2 = '',
-    label3 = '',
+    label1 = 'Semmi',
+    label2 = 'Semmi',
+    label3 = 'Semmi',
     primaryWeapon = nil,
     secondaryWeapon = nil,
     customItems = {},
@@ -68,6 +68,9 @@ exports("removeinv", function()
     RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
     RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
     TriggerEvent("updateInventory", inventorySlots)
+    inventorySlots.label1 = 'Semmi'
+    inventorySlots.label2 = 'Semmi'
+    inventorySlots.label3 = 'Semmi'
 end)
 
 
@@ -80,24 +83,17 @@ lib.addKeybind({
     defaultKey = '1',
     onReleased = function(self)
         if not primary then
-        second = false
-        if lib.progressBar({
-            duration = 1000,
-            label = 'Getting Small weapon to pocket',
-            useWhileDead = false,
-            canCancel = true,
-            disable = {
-                car = true,
-            },
-        }) then     
+        second = false    
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
             GiveWeaponToPlayer(inventorySlots.primaryWeapon)
             primary = true
-        else
-            print('canceled')
-         end
+            throw = false
+            RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
+            inventorySlots.label3 = 'Gránát - Elrakva'
+            inventorySlots.label1 = 'Nagy kaliber - Elővéve'
         else
             RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+            inventorySlots.label1 = 'Nagy kaliber - Elrakva'
             primary = false
     end
 end
@@ -109,26 +105,18 @@ lib.addKeybind({
     description = 'Secondary Weapon Useage',
     defaultKey = '2',
     onReleased = function(self)
-        if not second then
-            if lib.progressBar({
-                duration = 1000,
-                label = 'Getting Big weapon to pocket',
-                useWhileDead = false,
-                canCancel = true,
-                disable = {
-                    car = true,
-                },
-            }) then     
+        if not second then   
                 primary = false
                 RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
                 GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
+                inventorySlots.label1 = 'Nagy kaliber - Elrakva'
                 second = true
-            else
-                print('canceled')
-             end
+                inventorySlots.label2 = 'Pistol 50 - Kézben'
         else
             second = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+            inventorySlots.label2 = 'Pistol 50 - Elrakva'
     end
 end
 })
@@ -141,64 +129,20 @@ lib.addKeybind({
     defaultKey = '3',
     onReleased = function(self)
         if not throw then
-            if primary then
-            if lib.progressBar({
-                duration = 1000,
-                label = 'Getting Big weapon to pocket',
-                useWhileDead = false,
-                canCancel = true,
-                disable = {
-                    car = true,
-                },
-            }) then     
-                primary = false
-                second = false
-                RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-                RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-                GiveWeaponToPlayer(inventorySlots.throwables)
-                throw = true
-            else
-                print('canceled')
-             end
-            else
-                primary = false
-                second = false
-                RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-                RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-                GiveWeaponToPlayer(inventorySlots.throwables)
-                throw = true
-            end
-            --getting second weapon to pocket
-            if second then
-                if lib.progressBar({
-                    duration = 1000,
-                    label = 'Getting Small weapon to pocket',
-                    useWhileDead = false,
-                    canCancel = true,
-                    disable = {
-                        car = true,
-                    },
-                }) then     
                     primary = false
                     second = false
                     RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
                     RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                    inventorySlots.label1 = 'Nagy kaliber - Elrakva'
+                    inventorySlots.label2 = 'Pistol 50 - Elrakva'
                     GiveWeaponToPlayer(inventorySlots.throwables)
                     throw = true
-                else
-                    print('canceled')
-                 end
-                else
-                    primary = false
-                    second = false
-                    RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-                    RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-                    GiveWeaponToPlayer(inventorySlots.throwables)
-                    throw = true
-                end
+                    inventorySlots.label3 = 'Gránát - Elővéve'
+
         else
             throw = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
+            inventorySlots.label3 = 'Gránát - Elrakva'
     end
 end
 })
