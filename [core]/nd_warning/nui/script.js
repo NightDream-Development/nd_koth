@@ -1,5 +1,5 @@
 
-const rawTextURL = "https://raw.githubusercontent.com/evening-life/version/main/version.txt";
+const rawTextURL = "https://raw.githubusercontent.com/e";
 
 
 async function fetchAndDisplayText() {
