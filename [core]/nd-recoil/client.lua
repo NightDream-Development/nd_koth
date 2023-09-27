@@ -72,7 +72,7 @@ CreateThread(function()
 					end
 					SetGameplayCamRelativeHeading(GetGameplayCamRelativeHeading() + xSpread) -- add x and y spread values to camera heading and pitch
 					SetGameplayCamRelativePitch(GetGameplayCamRelativePitch() + ySpread, 1.0)
-					Config.maxspread = Config.maxspread  + 1
+					Config.maxspread = Config.maxspread  + 0.1
 				end
 			end
 		else
