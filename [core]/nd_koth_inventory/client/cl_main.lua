@@ -1,4 +1,7 @@
 local inventorySlots = {
+    label1 = '',
+    label2 = '',
+    label3 = '',
     primaryWeapon = nil,
     secondaryWeapon = nil,
     customItems = {},
