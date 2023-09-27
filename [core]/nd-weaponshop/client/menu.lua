@@ -10,6 +10,8 @@ AddEventHandler('koth:openweaponshop', function(cteam)
             description = '',
             icon = 'fa-solid fa-gun',
             onSelect = function()
+                exports.nd_koth_inventory:removeinv()
+                Wait(600)
                     exports.nd_koth_inventory:AddWeaponToInventory(3, "WEAPON_GRENADE")
                     --GiveWeaponToPed(cache.ped, GetHashKey("WEAPON_ASSAULTRIFLE"), 800, false, true)
                     exports.nd_koth_inventory:AddWeaponToInventory(1, "WEAPON_ASSAULTRIFLE")
@@ -28,6 +30,8 @@ AddEventHandler('koth:openweaponshop', function(cteam)
             description = '',
             icon = 'fa-solid fa-gun',
             onSelect = function()
+                exports.nd_koth_inventory:removeinv()
+                Wait(600)
                 exports.nd_koth_inventory:AddWeaponToInventory(3, "WEAPON_GRENADE")
                 --GiveWeaponToPed(cache.ped, GetHashKey("WEAPON_ASSAULTRIFLE"), 800, false, true)
                 exports.nd_koth_inventory:AddWeaponToInventory(1, "WEAPON_CARBINERIFLE")
