@@ -16,19 +16,18 @@ end)
 Citizen.CreateThread(function()
     SetNuiFocus(false, false)
     while true do
-        Citizen.Wait(0)
+        Wait(100)
         -- Update the UI with the latest inventory data
         SendNUIText("updateInventory", inventorySlots)
-        -- Disable weapon wheel (optional)
-        HideHudComponentThisFrame(19) -- Weapon wheel
 
     end
 end)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
             DisableControlAction(0, 37, true)
+        HideHudComponentThisFrame(19) -- Weapon wheel
     end
 end)
 
@@ -82,9 +81,21 @@ lib.addKeybind({
     onReleased = function(self)
         if not primary then
         second = false
-        RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-        GiveWeaponToPlayer(inventorySlots.primaryWeapon)
-        primary = true
+        if lib.progressBar({
+            duration = 1000,
+            label = 'Getting Small weapon to pocket',
+            useWhileDead = false,
+            canCancel = true,
+            disable = {
+                car = true,
+            },
+        }) then     
+            RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+            GiveWeaponToPlayer(inventorySlots.primaryWeapon)
+            primary = true
+        else
+            print('canceled')
+         end
         else
             RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
             primary = false
@@ -99,10 +110,22 @@ lib.addKeybind({
     defaultKey = '2',
     onReleased = function(self)
         if not second then
-        primary = false
-        RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-        GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
-        second = true
+            if lib.progressBar({
+                duration = 1000,
+                label = 'Getting Big weapon to pocket',
+                useWhileDead = false,
+                canCancel = true,
+                disable = {
+                    car = true,
+                },
+            }) then     
+                primary = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
+                second = true
+            else
+                print('canceled')
+             end
         else
             second = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
@@ -118,12 +141,61 @@ lib.addKeybind({
     defaultKey = '3',
     onReleased = function(self)
         if not throw then
-        primary = false
-        second = false
-        RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-        RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-        GiveWeaponToPlayer(inventorySlots.throwables)
-        throw = true
+            if primary then
+            if lib.progressBar({
+                duration = 1000,
+                label = 'Getting Big weapon to pocket',
+                useWhileDead = false,
+                canCancel = true,
+                disable = {
+                    car = true,
+                },
+            }) then     
+                primary = false
+                second = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                GiveWeaponToPlayer(inventorySlots.throwables)
+                throw = true
+            else
+                print('canceled')
+             end
+            else
+                primary = false
+                second = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                GiveWeaponToPlayer(inventorySlots.throwables)
+                throw = true
+            end
+            --getting second weapon to pocket
+            if second then
+                if lib.progressBar({
+                    duration = 1000,
+                    label = 'Getting Small weapon to pocket',
+                    useWhileDead = false,
+                    canCancel = true,
+                    disable = {
+                        car = true,
+                    },
+                }) then     
+                    primary = false
+                    second = false
+                    RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                    RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                    GiveWeaponToPlayer(inventorySlots.throwables)
+                    throw = true
+                else
+                    print('canceled')
+                 end
+                else
+                    primary = false
+                    second = false
+                    RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                    RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                    GiveWeaponToPlayer(inventorySlots.throwables)
+                    throw = true
+                end
         else
             throw = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
