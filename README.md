@@ -23,7 +23,7 @@
 
 - Make maps for every team! 🌀 (In the works)
 
-- Some kind of inventory when you buy weapon! 🌀 (It's working but still needs fixes!)
+- Some kind of inventory when you buy weapon! 🌀 (It's working but still need fixes!)
 
 - Create points for teams! 🌀 (Work in Progress)
 
