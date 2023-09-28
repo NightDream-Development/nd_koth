@@ -7,10 +7,9 @@
 ## Features
 
 - fully built with ox scripts (target,lib,oxmysql)
-- optimised chat (from 0.04 to 0.00)
-- customised pma-voice with radio animation
+- optimised chat (from 0.04 to 0.01)
 - 3 teams
-- Basic koth hud (Not optimised)
+- Basic koth hud
 
 
 ## Optimizations
@@ -23,17 +22,21 @@ From the createthread i deleted the check for button press on t or L and i wrote
 
 ## Roadmap
 
-- Better target support
+- Better target support ✅
 
-- Make oxmysql now essential part for this!
+- Make oxmysql now essential part for this! ✅ (XP)
 
-- Create xp system were you can get more weapon kits for the ped if you leveled up or have high enough level!
+- Create xp system were you can get more weapon kits for the ped if you leveled up or have high enough level! ⚠️ (The xp system not ours but it works!)
 
-- Rebuild the nd_koth script so you can config everything!
+- Rebuild the nd_koth script so you can config everything! ✅
 
-- Make maps for every team!
+- Make maps for every team! 🌀 (In the works)
 
-- Some kind of inventory when you buy weapon! (only 3 items! Like everry other koth server!)
+- Some kind of inventory when you buy weapon! 🌀 (It's working but still needs fixes!)
+
+- Create points for teams! 🌀 (Work in Progress)
+
+- Create locales! ❌ (Haven't started working on it! When the 1.0  beta will come out it will have locales for HUN and ENG!)
 
 
 ## Support
