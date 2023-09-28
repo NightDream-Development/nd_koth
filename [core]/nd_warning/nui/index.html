@@ -9,20 +9,23 @@
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
+      /* justify-content: flex-end;
+      align-items: flex-end; */
       min-height: 100vh;
       background-color: rgba(0, 0, 0, 0); /* Transparent background */
     }
     #info {
-      margin: 10px;
-      background-color: rgba(255, 255, 255, 0);
-      color: rgba(255, 255, 255, 0.266);
-      padding: 10px;
-      right: -15%;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-    }
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0.781);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
   </style>
 </head>
 <body>
