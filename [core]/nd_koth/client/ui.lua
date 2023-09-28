@@ -36,8 +36,7 @@ end)
 CreateThread(function()
     while true do 
         Wait(100)
-        local ped = PlayerPedId()
-        SetCanAttackFriendly(ped, true, true)
+        SetCanAttackFriendly(cache.ped, true, true)
         NetworkSetFriendlyFireOption(true)
     end
 end)
@@ -62,7 +61,7 @@ CreateThread(function()
     HideHudComponentThisFrame(17) -- 17 : SAVING_GAME
     -- HideHudComponentThisFrame(18) -- 18 : GAME_STREAM
     DisplayAmmoThisFrame(true)
-     Wait(4)
+     Wait(40)
  end
 end)
 

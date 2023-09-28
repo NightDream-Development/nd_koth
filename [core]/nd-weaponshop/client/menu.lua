@@ -1,3 +1,5 @@
+local lvl = exports.pickle_xp:GetLevel("shooting")
+
 RegisterNetEvent('koth:openweaponshop')
 AddEventHandler('koth:openweaponshop', function(cteam)
     lib.registerContext({
@@ -6,7 +8,7 @@ AddEventHandler('koth:openweaponshop', function(cteam)
         menu = 'kit_menut',
         options = {
             {
-            title = 'AK-47 kit',
+            title = 'AK-47 kit - Nem szinthez kötött',
             description = '',
             icon = 'fa-solid fa-gun',
             onSelect = function()
@@ -21,15 +23,17 @@ AddEventHandler('koth:openweaponshop', function(cteam)
                 lib.notify({
                     title = 'Fegyverbolt',
                     description = 'AK-47 Kit megkapva!',
-                    type = ''
+                    type = 'success'
                 })
             end
         },
         {
-            title = 'M4 kit',
+            title = 'M4 kit - LVL 10',
             description = '',
             icon = 'fa-solid fa-gun',
             onSelect = function()
+                print(lvl)
+                if lvl > 10 then
                 exports.nd_koth_inventory:removeinv()
                 Wait(600)
                 exports.nd_koth_inventory:AddWeaponToInventory(3, "WEAPON_GRENADE")
@@ -41,11 +45,26 @@ AddEventHandler('koth:openweaponshop', function(cteam)
                 lib.notify({
                     title = 'Fegyverbolt',
                     description = 'M4 Kit megkapva!',
-                    type = ''
+                    type = 'success'
                 })
+            else
+                lib.notify({
+                    title = 'Fegyverbolt',
+                    description = 'M4 Kit csak 10-es szinttől lehet megkapni!',
+                    type = 'error'
+                })
+            end
             end
         }
     }
     })
     lib.showContext('kit_menut')
+end)
+
+RegisterCommand('test', function()
+    RequestModel(GetHashKey( "a_c_cow"))
+    CreatePed(5, GetHashKey( "a_c_cow"), 659.4348,618.0666,128.9108 - 1, 123.1347, false, false)
+    while not HasModelLoaded(GetHashKey("a_c_cow")) do
+		Citizen.Wait( 1 )
+	end
 end)

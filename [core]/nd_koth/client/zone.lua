@@ -1,5 +1,5 @@
 local checkRadius = 655
-local checkCoordinate = vector3(-362.0161, -303.7297, 32.4943)
+local checkCoordinate = Config.Hill
 local inradius = false
 local shownui = false
 

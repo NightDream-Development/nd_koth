@@ -6,6 +6,6 @@ function DisableCopHUDAndWantedSystem()
 end
 
 Citizen.CreateThread(function()
-    Citizen.Wait(1000)
+    Citizen.Wait(100)
     DisableCopHUDAndWantedSystem()
 end)

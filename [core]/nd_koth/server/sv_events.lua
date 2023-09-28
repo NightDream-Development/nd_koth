@@ -119,3 +119,8 @@ AddEventHandler('koth:join', function()
     print('[join:npc]: ' .. source .. ' ID joined 0 dimension! All npc spawn have been turned off for him!')
     SetRoutingBucketPopulationEnabled(0, false)
 end)
+
+RegisterNetEvent('koth:kill')
+AddEventHandler('koth:kill', function()
+    exports.pickle_xp:AddPlayerXP(source, 'shooting', 150)
+end)

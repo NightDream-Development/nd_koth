@@ -8,7 +8,7 @@ local previousState = false
 CreateThread(function()
     while true do
         RequestAnimDict("cellphone@")
-        Wait(100) 
+        Wait(1000) 
         if talkingonradio ~= previousState then
             previousState = talkingonradio
             if talkingonradio then

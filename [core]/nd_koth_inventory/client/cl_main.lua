@@ -82,6 +82,25 @@ lib.addKeybind({
     description = 'Primary Weapon Useage',
     defaultKey = '1',
     onReleased = function(self)
+        if inventorySlots.primaryWeapon == nil then
+            lib.notify({
+                id = 'noWP',
+                title = 'Inventory',
+                description = 'Nincs fegyver ebben a stolban',
+                position = 'top',
+                style = {
+                    backgroundColor = '#141517',
+                    color = '#C1C2C5',
+                    ['.description'] = {
+                      color = '#909296'
+                    }
+                },
+                icon = 'ban',
+                iconColor = '#C53030'
+            })
+            inventorySlots.label1 = 'Semmi'
+        else
+
         if not primary then
         second = false    
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
@@ -91,11 +110,13 @@ lib.addKeybind({
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
             inventorySlots.label3 = 'Gránát - Elrakva'
             inventorySlots.label1 = 'Nagy kaliber - Elővéve'
+            inventorySlots.label2 = 'Pisztoly - Elrakva'
         else
             RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
             inventorySlots.label1 = 'Nagy kaliber - Elrakva'
             primary = false
     end
+end
 end
 })
 
@@ -105,6 +126,25 @@ lib.addKeybind({
     description = 'Secondary Weapon Useage',
     defaultKey = '2',
     onReleased = function(self)
+        if inventorySlots.secondaryWeapon == nil then
+            lib.notify({
+                id = 'noWP',
+                title = 'Inventory',
+                description = 'Nincs fegyver ebben a stolban',
+                position = 'top',
+                style = {
+                    backgroundColor = '#141517',
+                    color = '#C1C2C5',
+                    ['.description'] = {
+                      color = '#909296'
+                    }
+                },
+                icon = 'ban',
+                iconColor = '#C53030'
+            })
+            inventorySlots.label2 = 'Semmi'
+        else
+
         if not second then   
                 primary = false
                 RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
@@ -112,12 +152,13 @@ lib.addKeybind({
                 GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
                 inventorySlots.label1 = 'Nagy kaliber - Elrakva'
                 second = true
-                inventorySlots.label2 = 'Pistol 50 - Kézben'
+                inventorySlots.label2 = 'Pisztoly - Kézben'
         else
             second = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-            inventorySlots.label2 = 'Pistol 50 - Elrakva'
+            inventorySlots.label2 = 'Pisztoly - Elrakva'
     end
+end
 end
 })
 
@@ -128,6 +169,24 @@ lib.addKeybind({
     description = 'Throwables',
     defaultKey = '3',
     onReleased = function(self)
+        if json.encode(inventorySlots.throwables) == '[]' then
+            lib.notify({
+                id = 'noWP',
+                title = 'Inventory',
+                description = 'Nincs gránát ebben a stolban',
+                position = 'top',
+                style = {
+                    backgroundColor = '#141517',
+                    color = '#C1C2C5',
+                    ['.description'] = {
+                      color = '#909296'
+                    }
+                },
+                icon = 'ban',
+                iconColor = '#C53030'
+            })
+            inventorySlots.label3 = 'Semmi'
+        else
         if not throw then
                     primary = false
                     second = false
@@ -144,5 +203,6 @@ lib.addKeybind({
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
             inventorySlots.label3 = 'Gránát - Elrakva'
     end
+end
 end
 })
