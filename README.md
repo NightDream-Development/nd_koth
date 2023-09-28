@@ -29,6 +29,12 @@
 
 - Create locales! ❌ (Haven't started working on it! When the 1.0  beta will come out it will have locales for HUN and ENG!)
 
+## Third Party scripts
+- ox_lib , Ox_target, oxmysql
+- bob74_ipl
+- pma-voice
+- lsa_hud
+- pickle_xp
 
 ## Support
 
