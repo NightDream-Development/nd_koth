@@ -13,6 +13,17 @@ RegisterNetEvent('nd-adminmenu/announcment', function(msg)
   local players = GetPlayers()
   for _, playerId in ipairs(players) do
       TriggerClientEvent('nd-adminmenu/cannouncment', playerId, msg)
+      TriggerClientEvent('chat:addMessage', playerId, {
+        templateId =  'announcment',
+        multiline =  false,
+        args = {
+            '#e74c3c',
+            'fa-solid fa-circle-exclamation',
+            locale('staff_announcment'),
+            '',
+            msg
+        } 
+    })
   end
 end)
 

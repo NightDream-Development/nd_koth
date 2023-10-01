@@ -8,6 +8,7 @@ zoneteam = Senki
 
 RegisterNetEvent('koth:ui:kingupdate')
 AddEventHandler('koth:ui:kingupdate', function(team)
+	print('[koth:ui] Team with most players in the zone: ' ..team )
     SendNUIMessage({
         kingteam = team
     })
@@ -17,6 +18,7 @@ end)
 
 RegisterNetEvent('koth:ui:teamnum')
 AddEventHandler('koth:ui:teamnum', function(red, green, blue)
+	print('[koth:ui] Players in the zone red: '..red.. ' green: ' ..green.. ' blue:' ..blue)
     SendNUIMessage({
         team1 = red,
         team2 = blue,
@@ -34,28 +36,20 @@ end)
 
 RegisterNetEvent("koth:ui:endmatchscrn")
 AddEventHandler("koth:ui:endmatchscrn",function()
-		local scaleform = RequestScaleformMovie("mp_big_message_freemode")
-		while not HasScaleformMovieLoaded(scaleform) do Citizen.Wait(0) end
-		BeginScaleformMovieMethod(scaleform, "SHOW_SHARD_WASTED_MP_MESSAGE")
-		PushScaleformMovieMethodParameterString("~r~MECCS VÉGETÉRT!")
         if zoneteam == 'Senki' then
-            PushScaleformMovieMethodParameterString('DÖNTETLEN!')
+            lib.alertDialog({
+				header = 'Match has ended!',
+				content = 'Every team has won! DRAW! \n The server will restart!',
+				centered = true,
+				cancel = true
+			})
         else
-		PushScaleformMovieMethodParameterString('A meccset a ' ..zoneteam.. ' csapat nyerte!')
+		lib.alertDialog({
+			header = 'Match has ended!',
+			content = 'The ' ..zoneteam.. ' has won the match! \n The server will restart!',
+			centered = true,
+			cancel = true
+		})
         end
-		PushScaleformMovieMethodParameterInt(5)
-		EndScaleformMovieMethod()
 		PlaySoundFrontend(-1, "LOSER", "HUD_AWARDS")
-		ClearDrawOrigin()
-		while true do
-			Citizen.Wait(0)
-			DisableAllControlActions(0)
-			DisableFrontendThisFrame()
-			local ped = GetPlayerPed(-1)
-			SetEntityCoords(ped, 0, 0, 0, 0, 0, 0, false)
-			FreezeEntityPosition(ped, true)
-			DrawRect(0.0,0.0,2.0,2.0,0,0,0,255)
-			DrawScaleformMovieFullscreen(scaleform, 255, 255, 255, 255)
-		end
-		SetScaleformMovieAsNoLongerNeeded(scaleform)
 end)

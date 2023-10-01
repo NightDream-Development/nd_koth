@@ -16,4 +16,5 @@ blue.weaponshoplabel = 'Fegyver Bolt'
 
 
 --Spawn coordinates
-bluespawncoords = {x = 650.5582,y = 646.4577,z = 129.0492,rotation = 128.9109}
+
+bluespawncoords = {x = -2079.3164,y = -321.3518,z = 13.1073,rotation = 128.9109}

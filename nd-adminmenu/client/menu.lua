@@ -1,8 +1,9 @@
 lib.locale()
-
+local loaded = false
 RegisterNetEvent('nd-adminmenu/openmenu', function()
     --Prepare any menu
    -- vehicle menu
+   if not loaded then
     lib.registerMenu({
         id = 'vehiclemenu',
         title = locale('vehicle_menu_title'),
@@ -89,14 +90,21 @@ RegisterNetEvent('nd-adminmenu/openmenu', function()
             lib.showMenu('playermenu')
         end        
     end)
+    loaded = true
+    print('UI Loaded to ox_Lib')
+else
+    print('moving to opening')
+end
+    lib.showMenu('adminmenu')
 end)
 
     lib.addKeybind({
      name = 'openmenu',
      description = locale('keybind_name'),
      defaultKey = Config.menukeybind,
-     onReleased = function(self)
+     onReleased = function()
         print(Config.menucommand)
         ExecuteCommand(Config.menucommand)
+        --TriggerEvent('nd-adminmenu/openmenu')
      end,
     })

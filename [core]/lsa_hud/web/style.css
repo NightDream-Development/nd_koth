@@ -19,13 +19,13 @@ body {
   width: 350px;
 
   transform-origin: bottom right;
-  transform: rotate(5deg);
+  /* transform: rotate(5deg); */
 }
 
 .health-container {
   height: 10px;
   box-shadow: 0px 0px 8px rgba(16, 17, 19, 1);
-  background-color: rgba(16, 17, 19, 0.55);
+  background-color: rgba(16, 17, 19, 0.61);
   border-radius: 2px;
 }
 
@@ -51,7 +51,7 @@ body {
   height: 12px;
   border-radius: 4px;
   box-shadow: 0px 0px 8px rgba(16, 17, 19, 1);
-  background-color: rgba(16, 17, 19, 0.55);
+  background-color: rgba(16, 17, 19, 0.726);
   flex: 1;
   display: block;
   transition: background-color 0.5s ease;
