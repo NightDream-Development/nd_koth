@@ -3,7 +3,8 @@ games { 'gta5' }
 lua54 'yes'
 --Additional files here
 files {
-  'UI/*'
+  'UI/*',
+  'locales/*.json'
 }
 
 --Client sided scripts

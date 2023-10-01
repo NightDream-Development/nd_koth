@@ -1,0 +1,15 @@
+{
+ "no_wpslot": "There is no weapon in this slot!",
+ "no_grslot": "There is no grenade in this slot!",
+ "noslot": "No weapon in slot",
+
+ "bigkaliber_on": "Primary Weapon - In hand",
+ "bigkaliber_off": "Primary Weapon - In Pocket",
+
+ "bigsmall_on": "Secondary Weapon - In hand",
+ "bigsmall_off": "Secondary Weapon - In Pocket",
+
+ "grenade_on": "Secondary Weapon - In hand",
+ "grenade_off": "Secondary Weapon - In Pocket"
+
+}

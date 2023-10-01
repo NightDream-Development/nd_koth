@@ -1,7 +1,8 @@
+lib.locale()
 local inventorySlots = {
-    label1 = 'Semmi',
-    label2 = 'Semmi',
-    label3 = 'Semmi',
+    label1 = lib.loacle('noslot'),
+    label2 = lib.loacle('noslot'),
+    label3 = lib.loacle('noslot'),
     primaryWeapon = nil,
     secondaryWeapon = nil,
     customItems = {},
@@ -68,9 +69,9 @@ exports("removeinv", function()
     RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
     RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
     TriggerEvent("updateInventory", inventorySlots)
-    inventorySlots.label1 = 'Semmi'
-    inventorySlots.label2 = 'Semmi'
-    inventorySlots.label3 = 'Semmi'
+    inventorySlots.label1 = lib.loacle('noslot')
+    inventorySlots.label2 = lib.loacle('noslot')
+    inventorySlots.label3 = lib.loacle('noslot')
 end)
 
 
@@ -86,7 +87,7 @@ lib.addKeybind({
             lib.notify({
                 id = 'noWP',
                 title = 'Inventory',
-                description = 'Nincs fegyver ebben a stolban',
+                description = lib.locale('no_wpslot'),
                 position = 'top',
                 style = {
                     backgroundColor = '#141517',
@@ -98,7 +99,7 @@ lib.addKeybind({
                 icon = 'ban',
                 iconColor = '#C53030'
             })
-            inventorySlots.label1 = 'Semmi'
+            inventorySlots.label1 = lib.loacle('noslot')
         else
 
         if not primary then
@@ -108,12 +109,12 @@ lib.addKeybind({
             primary = true
             throw = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
-            inventorySlots.label3 = 'Gránát - Elrakva'
-            inventorySlots.label1 = 'Nagy kaliber - Elővéve'
-            inventorySlots.label2 = 'Pisztoly - Elrakva'
+            inventorySlots.label3 = lib.loacle('grenade_off')
+            inventorySlots.label1 = lib.loacle('bigkaliber_on')
+            inventorySlots.label2 = lib.loacle('bigsmall_off')
         else
             RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-            inventorySlots.label1 = 'Nagy kaliber - Elrakva'
+            inventorySlots.label1 = lib.loacle('bigkaliber_off')
             primary = false
     end
 end
@@ -130,7 +131,7 @@ lib.addKeybind({
             lib.notify({
                 id = 'noWP',
                 title = 'Inventory',
-                description = 'Nincs fegyver ebben a stolban',
+                description = lib.locale('no_wpslot'),
                 position = 'top',
                 style = {
                     backgroundColor = '#141517',
@@ -142,7 +143,7 @@ lib.addKeybind({
                 icon = 'ban',
                 iconColor = '#C53030'
             })
-            inventorySlots.label2 = 'Semmi'
+            inventorySlots.label2 = lib.loacle('noslot')
         else
 
         if not second then   
@@ -150,13 +151,13 @@ lib.addKeybind({
                 RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
                 RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
                 GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
-                inventorySlots.label1 = 'Nagy kaliber - Elrakva'
+                inventorySlots.label1 = lib.loacle('bigkaliber_off')
                 second = true
-                inventorySlots.label2 = 'Pisztoly - Kézben'
+                inventorySlots.label2 = lib.loacle('bigsmall_on')
         else
             second = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-            inventorySlots.label2 = 'Pisztoly - Elrakva'
+            inventorySlots.label2 = lib.loacle('bigsmall_off')
     end
 end
 end
@@ -173,7 +174,7 @@ lib.addKeybind({
             lib.notify({
                 id = 'noWP',
                 title = 'Inventory',
-                description = 'Nincs gránát ebben a stolban',
+                description = lib.loacle('no_grslot'),
                 position = 'top',
                 style = {
                     backgroundColor = '#141517',
@@ -185,23 +186,23 @@ lib.addKeybind({
                 icon = 'ban',
                 iconColor = '#C53030'
             })
-            inventorySlots.label3 = 'Semmi'
+            inventorySlots.label3 = lib.loacle('noslot')
         else
         if not throw then
                     primary = false
                     second = false
                     RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
                     RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-                    inventorySlots.label1 = 'Nagy kaliber - Elrakva'
-                    inventorySlots.label2 = 'Pistol 50 - Elrakva'
+                    inventorySlots.label1 = lib.loacle('bigkaliber_off')
+                    inventorySlots.label2 = lib.loacle('bigsmall_off')
                     GiveWeaponToPlayer(inventorySlots.throwables)
                     throw = true
-                    inventorySlots.label3 = 'Gránát - Elővéve'
+                    inventorySlots.label3 = lib.loacle('grenade_on')
 
         else
             throw = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
-            inventorySlots.label3 = 'Gránát - Elrakva'
+            inventorySlots.label3 = lib.loacle('grenade_off')
     end
 end
 end

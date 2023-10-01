@@ -16,7 +16,8 @@ ui_page 'ui/index.html'
 files {
     'ui/*.html',
     'ui/*.css',
-    'ui/app.js'
+    'ui/app.js',
+    'locales/*.json'
 }
 
 

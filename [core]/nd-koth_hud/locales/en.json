@@ -1,0 +1,5 @@
+{
+    "ended": "Match has ended!",
+    "draw_end": "Every team has won! DRAW! \n The server will restart!",
+    "team_won": "The ' ..zoneteam.. ' has won the match! \n The server will restart!"
+  }

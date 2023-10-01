@@ -4,6 +4,8 @@
 --         Wait(1000)
 --     end
 -- end)
+
+lib.locale()
 zoneteam = Senki
 
 RegisterNetEvent('koth:ui:kingupdate')
@@ -38,17 +40,17 @@ RegisterNetEvent("koth:ui:endmatchscrn")
 AddEventHandler("koth:ui:endmatchscrn",function()
         if zoneteam == 'Senki' then
             lib.alertDialog({
-				header = 'Match has ended!',
-				content = 'Every team has won! DRAW! \n The server will restart!',
+				header = lib.locale('ended'),
+				content = lib.locale('draw_end'),
 				centered = true,
-				cancel = true
+				cancel = false
 			})
         else
 		lib.alertDialog({
-			header = 'Match has ended!',
-			content = 'The ' ..zoneteam.. ' has won the match! \n The server will restart!',
+			header = lib.locale('ended'),
+			content = lib.locale('team_won'),
 			centered = true,
-			cancel = true
+			cancel = false
 		})
         end
 		PlaySoundFrontend(-1, "LOSER", "HUD_AWARDS")
