@@ -1,8 +1,8 @@
 lib.locale()
 local inventorySlots = {
-    label1 = lib.loacle('noslot'),
-    label2 = lib.loacle('noslot'),
-    label3 = lib.loacle('noslot'),
+    label1 = locale('noslot'),
+    label2 = locale('noslot'),
+    label3 = locale('noslot'),
     primaryWeapon = nil,
     secondaryWeapon = nil,
     customItems = {},
@@ -14,7 +14,7 @@ AddEventHandler("updateInventory", function(updatedInventory)
     inventorySlots = updatedInventory
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     SetNuiFocus(false, false)
     while true do
         Wait(100)
@@ -24,10 +24,10 @@ Citizen.CreateThread(function()
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         Wait(0)
-            DisableControlAction(0, 37, true)
+        DisableControlAction(0, 37, true)
         HideHudComponentThisFrame(19) -- Weapon wheel
     end
 end)
@@ -69,9 +69,9 @@ exports("removeinv", function()
     RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
     RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
     TriggerEvent("updateInventory", inventorySlots)
-    inventorySlots.label1 = lib.loacle('noslot')
-    inventorySlots.label2 = lib.loacle('noslot')
-    inventorySlots.label3 = lib.loacle('noslot')
+    inventorySlots.label1 = locale('noslot')
+    inventorySlots.label2 = locale('noslot')
+    inventorySlots.label3 = locale('noslot')
 end)
 
 
@@ -87,7 +87,7 @@ lib.addKeybind({
             lib.notify({
                 id = 'noWP',
                 title = 'Inventory',
-                description = lib.locale('no_wpslot'),
+                description = locale('no_wpslot'),
                 position = 'top',
                 style = {
                     backgroundColor = '#141517',
@@ -99,7 +99,7 @@ lib.addKeybind({
                 icon = 'ban',
                 iconColor = '#C53030'
             })
-            inventorySlots.label1 = lib.loacle('noslot')
+            inventorySlots.label1 = locale('noslot')
         else
 
         if not primary then
@@ -109,12 +109,12 @@ lib.addKeybind({
             primary = true
             throw = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
-            inventorySlots.label3 = lib.loacle('grenade_off')
-            inventorySlots.label1 = lib.loacle('bigkaliber_on')
-            inventorySlots.label2 = lib.loacle('bigsmall_off')
+            inventorySlots.label3 = locale('grenade_off')
+            inventorySlots.label1 = locale('bigkaliber_on')
+            inventorySlots.label2 = locale('bigsmall_off')
         else
             RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-            inventorySlots.label1 = lib.loacle('bigkaliber_off')
+            inventorySlots.label1 = locale('bigkaliber_off')
             primary = false
     end
 end
@@ -131,7 +131,7 @@ lib.addKeybind({
             lib.notify({
                 id = 'noWP',
                 title = 'Inventory',
-                description = lib.locale('no_wpslot'),
+                description = locale('no_wpslot'),
                 position = 'top',
                 style = {
                     backgroundColor = '#141517',
@@ -143,7 +143,7 @@ lib.addKeybind({
                 icon = 'ban',
                 iconColor = '#C53030'
             })
-            inventorySlots.label2 = lib.loacle('noslot')
+            inventorySlots.label2 = locale('noslot')
         else
 
         if not second then   
@@ -151,13 +151,13 @@ lib.addKeybind({
                 RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
                 RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
                 GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
-                inventorySlots.label1 = lib.loacle('bigkaliber_off')
+                inventorySlots.label1 = locale('bigkaliber_off')
                 second = true
-                inventorySlots.label2 = lib.loacle('bigsmall_on')
+                inventorySlots.label2 = locale('bigsmall_on')
         else
             second = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-            inventorySlots.label2 = lib.loacle('bigsmall_off')
+            inventorySlots.label2 = locale('bigsmall_off')
     end
 end
 end
@@ -174,7 +174,7 @@ lib.addKeybind({
             lib.notify({
                 id = 'noWP',
                 title = 'Inventory',
-                description = lib.loacle('no_grslot'),
+                description = locale('no_grslot'),
                 position = 'top',
                 style = {
                     backgroundColor = '#141517',
@@ -186,23 +186,23 @@ lib.addKeybind({
                 icon = 'ban',
                 iconColor = '#C53030'
             })
-            inventorySlots.label3 = lib.loacle('noslot')
+            inventorySlots.label3 = locale('noslot')
         else
         if not throw then
                     primary = false
                     second = false
                     RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
                     RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-                    inventorySlots.label1 = lib.loacle('bigkaliber_off')
-                    inventorySlots.label2 = lib.loacle('bigsmall_off')
+                    inventorySlots.label1 = locale('bigkaliber_off')
+                    inventorySlots.label2 = locale('bigsmall_off')
                     GiveWeaponToPlayer(inventorySlots.throwables)
                     throw = true
-                    inventorySlots.label3 = lib.loacle('grenade_on')
+                    inventorySlots.label3 = locale('grenade_on')
 
         else
             throw = false
             RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
-            inventorySlots.label3 = lib.loacle('grenade_off')
+            inventorySlots.label3 = locale('grenade_off')
     end
 end
 end

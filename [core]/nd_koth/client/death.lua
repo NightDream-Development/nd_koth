@@ -49,7 +49,7 @@ CreateThread(function()
             --devprint('xpshoot', 'Checking..')
         if IsPedShooting(cache.ped) then
             devprint('xpshoot', 'Given 150 xp for shooting')
-            TriggerServerEvent('koth:kill')
+            TriggerServerEvent('koth:givexp', 'shooting', 150)
             cooldown = true
             devprint('xpshoot', 'cooldown has been enabled')
             Wait(120000)

@@ -40,15 +40,15 @@ RegisterNetEvent("koth:ui:endmatchscrn")
 AddEventHandler("koth:ui:endmatchscrn",function()
         if zoneteam == 'Senki' then
             lib.alertDialog({
-				header = lib.locale('ended'),
-				content = lib.locale('draw_end'),
+				header = locale('ended'),
+				content = locale('draw_end'),
 				centered = true,
 				cancel = false
 			})
         else
 		lib.alertDialog({
-			header = lib.locale('ended'),
-			content = lib.locale('team_won'),
+			header = locale('ended'),
+			content = locale('team_won'),
 			centered = true,
 			cancel = false
 		})

@@ -26,7 +26,7 @@ AddEventHandler('koth:setcteam', function(cteam)
         spawnweapontargetred()
     else
         if sourceteam == 'blue' then
-            SetEntityCoords(cache.ped, -2078.9465, -327.4488, 13.1342)
+            SetEntityCoords(cache.ped, bluespawncoords.x, bluespawncoords.y, bluespawncoords.z)
             local model = 'csb_ramp_marine'
             if IsModelInCdimage(model) and IsModelValid(model) then
                 RequestModel(model)

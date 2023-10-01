@@ -1,16 +1,17 @@
+lib.locale()
 CreateThread(function()
     DoScreenFadeOut(0)
     Wait(4000)
     lib.registerContext({
         id = 'join_menu',
-        title = 'Válasssz csapatot!',
+        title = locale('chose_team'),
         menu = 'join_menu',
         onBack = function()
             --print('Went back!')
         end,
         options = {{
-            title = 'Piros csapat',
-            description = 'Csatlakozz a piros csapatba!',
+            title = locale('chose_red'),
+            description = '',
             icon = 'fa-solid fa-gun',
             onSelect = function()
                 -- ExecuteCommand('team red')
@@ -19,8 +20,8 @@ CreateThread(function()
                 DoScreenFadeIn(1000)
             end
         }, {
-            title = 'Zöld csapat',
-            description = 'Csatlakozz a Zöld csapatba!',
+            title = locale('chose_green'),
+            description = '',
             icon = 'fa-solid fa-gun',
             onSelect = function()
                 TriggerServerEvent('koth:setteam', 'green')
@@ -28,8 +29,8 @@ CreateThread(function()
                 DoScreenFadeIn(1000)
             end
         }, {
-            title = 'Kék csapat',
-            description = 'Csatlakozz a kék csapatba!',
+            title = locale('chose_blue'),
+            description = '',
             icon = 'fa-solid fa-gun',
             onSelect = function()
                 TriggerServerEvent('koth:setteam', 'blue')

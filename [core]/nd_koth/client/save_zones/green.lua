@@ -1,3 +1,4 @@
+lib.locale()
 local isInCombatZone = false
 local combatZoneCenter = green.savezone
 local combatZoneRadius = 150.0 
@@ -26,8 +27,8 @@ Citizen.CreateThread(function()
 
             --print("You have entered the combat zone. Combat is disabled.")
             lib.notify({
-                title = 'Biztonsági Zóna!',
-                description = 'beléptél a biztonsági zónába!',
+                title = locale('safezone_title'),
+                description = locale('safezone_on'),
                 type = 'inform'
             })
         elseif not isInZone and isInCombatZone then
@@ -36,8 +37,8 @@ Citizen.CreateThread(function()
             SetEntityAlpha(PlayerPedId(), 255, false)
             --print("You have left the combat zone. Combat is enabled.")
             lib.notify({
-                title = 'Biztonsági Zóna!',
-                description = 'Elhagytad a biztonsági zónát!',
+                title = locale('safezone_title'),
+                description = locale('safezone_off'),
                 type = 'inform'
             })
         end

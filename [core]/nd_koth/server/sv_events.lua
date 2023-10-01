@@ -120,7 +120,13 @@ AddEventHandler('koth:join', function()
     SetRoutingBucketPopulationEnabled(0, false)
 end)
 
-RegisterNetEvent('koth:kill')
-AddEventHandler('koth:kill', function()
-    exports.pickle_xp:AddPlayerXP(source, 'shooting', 150)
+-- RegisterNetEvent('koth:kill')
+-- AddEventHandler('koth:kill', function()
+--     exports.pickle_xp:AddPlayerXP(source, 'shooting', 150)
+-- end)
+
+--Give XP with a simple trigger event
+RegisterNetEvent('koth:givexp')
+AddEventHandler('koth:givexp', function(xp, ammount)
+    exports.pickle_xp:AddPlayerXP(source, xp, ammount)
 end)

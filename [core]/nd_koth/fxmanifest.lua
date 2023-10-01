@@ -4,8 +4,9 @@ lua54 'yes'
 
 
 --Additional files here
--- files {
--- }
+files {
+  'locales/*.json',
+}
 
 --Client sided scripts
 client_scripts {

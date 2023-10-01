@@ -1,3 +1,4 @@
+lib.locale()
 local checkRadius = 655
 local checkCoordinate = Config.Hill
 local inradius = false
@@ -32,15 +33,15 @@ Citizen.CreateThread(function()
             previousInRadius = inradius
             if inradius then
                 lib.notify({
-                    title = 'Zóna',
-                    description = 'Beléptél a zónába!',
+                    title = locale('zone_title'),
+                    description = locale('zone_entered'),
                     type = 'inform'
                 })
                 TriggerServerEvent('koth:updatezone', sourceteam, true)
             else
                 lib.notify({
-                    title = 'Zóna',
-                    description = 'Kiléptél a zónába!',
+                    title = locale('zone_title'),
+                    description = locale('zone_left'),
                     type = 'inform'
                 })
                 TriggerServerEvent('koth:updatezone', sourceteam, false)

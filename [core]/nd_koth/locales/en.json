@@ -1,0 +1,18 @@
+{
+ "zone_title": "Zone",
+ "zone_none": "There is no king of the hill!",
+ "zone_red": "Red team has toke over the zone!",
+ "zone_green": "Red team has toke over the zone!",
+ "zone_blue": "Blue team has toke over the zone!",
+ "zone_entered": "You entered the zone!",
+ "zone_left": "You left the zone!",
+
+ "safezone_title": "Safezone",
+ "safezone_off": "You have left the safezone!",
+ "safezone_on": "You are in the safezone!",
+
+ "chose_team": "Choose a team!",
+ "chose_red": "Red Team",
+ "chose_green": "Green Team",
+ "chose_blue": "Blue Team"
+}

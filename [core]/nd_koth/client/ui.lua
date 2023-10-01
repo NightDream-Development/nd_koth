@@ -1,31 +1,32 @@
-devprint('ui', 'Betöltésre került!')
+lib.locale()
+devprint('ui', 'Loading!')
 RegisterNetEvent('koth:zoneui')
 AddEventHandler('koth:zoneui', function(zoneholder)
     if zoneholder == "none" then
         lib.notify({
-            title = 'Zóna',
-            description = 'Jelenleg senki nem foglalta be a zónát!',
+            title = locale('zone_title'),
+            description = locale('zone_none'),
             type = 'warning'
         })
         devprint('ui', zoneholder)
     elseif zoneholder == "red" then
         lib.notify({
-            title = 'Zóna',
-            description = 'A zónát befoglalta a piros csapat!',
+            title = locale('zone_title'),
+            description = locale('zone_red'),
             type = 'warning'
         })
         devprint('ui', zoneholder)
     elseif zoneholder == "green" then
         lib.notify({
-            title = 'Zóna',
-            description = 'A zónát befoglalta a zöld csapat!',
+            title = locale('zone_title'),
+            description = locale('zone_green'),
             type = 'warning'
         })
         devprint('ui', zoneholder)
     elseif zoneholder == "blue" then
         lib.notify({
-            title = 'Zóna',
-            description = 'A zónát befoglalta a kék csapat!',
+            title = locale('zone_title'),
+            description = locale('zone_blue'),
             type = 'warning'
         })
         devprint('ui', zoneholder)
