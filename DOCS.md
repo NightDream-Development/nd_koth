@@ -4,9 +4,9 @@
 This docs are for devs how want to get started modifying this Framework!
 
 # Events you can trigger
-| Event | param    | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `koth:givexp`      | `xp, ammount` | xp for what XP type you want! ammount for how mouch XP you want to give! |
+| Event | param    | Description                       | Side |
+| :-------- | :------- | :-------------------------------- | :--------- |
+| `koth:givexp`      | `xp, ammount` | xp for what XP type you want! ammount for how mouch XP you want to give! | Client to Server! |
 
 
 # Exports
