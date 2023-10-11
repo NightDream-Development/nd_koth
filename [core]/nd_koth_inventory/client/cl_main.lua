@@ -34,10 +34,7 @@ end)
 
 -- Function to send NUI (HTML) messages
 function SendNUIText(action, data)
-    SendNUIMessage({
-        type = action,
-        inventoryData = data
-    })
+    SendNUIMessage({type = action, inventoryData = data})
 end
 
 -- Function to give a weapon to the player
@@ -49,8 +46,8 @@ function GiveWeaponToPlayer(weaponName)
 end
 
 -- Exported function to add a weapon to the inventory
---example exports.nd_koth_inventory:AddWeaponToInventory(3, "WEAPON_GRENADE")
-exports("AddWeaponToInventory", function(what,weaponName)
+-- example exports.nd_koth_inventory:AddWeaponToInventory(3, "WEAPON_GRENADE")
+exports("AddWeaponToInventory", function(what, weaponName)
     if what == 1 then
         inventorySlots.primaryWeapon = weaponName
     elseif what == 2 then
@@ -58,10 +55,10 @@ exports("AddWeaponToInventory", function(what,weaponName)
     elseif what == 3 then
         inventorySlots.throwables = weaponName
     end
-    
-        TriggerEvent("updateInventory", inventorySlots)
+
+    TriggerEvent("updateInventory", inventorySlots)
 end)
---example exports.nd_koth_inventory:removeinv()
+-- example exports.nd_koth_inventory:removeinv()
 exports("removeinv", function()
     inventorySlots.primaryWeapon = nil
     inventorySlots.secondaryWeapon = nil
@@ -74,15 +71,16 @@ exports("removeinv", function()
     inventorySlots.label3 = locale('noslot')
 end)
 
+-- keybinds
 
---keybinds
+--Create Weapon pull out animation!
 
 primary = false
 lib.addKeybind({
     name = '1',
     description = 'Primary Weapon Useage',
     defaultKey = '1',
-    onReleased = function(self)
+    onReleased = function()
         if inventorySlots.primaryWeapon == nil then
             lib.notify({
                 id = 'noWP',
@@ -92,9 +90,7 @@ lib.addKeybind({
                 style = {
                     backgroundColor = '#141517',
                     color = '#C1C2C5',
-                    ['.description'] = {
-                      color = '#909296'
-                    }
+                    ['.description'] = {color = '#909296'}
                 },
                 icon = 'ban',
                 iconColor = '#C53030'
@@ -102,23 +98,23 @@ lib.addKeybind({
             inventorySlots.label1 = locale('noslot')
         else
 
-        if not primary then
-        second = false    
-            RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-            GiveWeaponToPlayer(inventorySlots.primaryWeapon)
-            primary = true
-            throw = false
-            RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
-            inventorySlots.label3 = locale('grenade_off')
-            inventorySlots.label1 = locale('bigkaliber_on')
-            inventorySlots.label2 = locale('bigsmall_off')
-        else
-            RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-            inventorySlots.label1 = locale('bigkaliber_off')
-            primary = false
+            if not primary then
+                second = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                GiveWeaponToPlayer(inventorySlots.primaryWeapon)
+                primary = true
+                throw = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
+                inventorySlots.label3 = locale('grenade_off')
+                inventorySlots.label1 = locale('bigkaliber_on')
+                inventorySlots.label2 = locale('bigsmall_off')
+            else
+                RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                inventorySlots.label1 = locale('bigkaliber_off')
+                primary = false
+            end
+        end
     end
-end
-end
 })
 
 second = false
@@ -126,7 +122,7 @@ lib.addKeybind({
     name = '2',
     description = 'Secondary Weapon Useage',
     defaultKey = '2',
-    onReleased = function(self)
+    onReleased = function()
         if inventorySlots.secondaryWeapon == nil then
             lib.notify({
                 id = 'noWP',
@@ -136,9 +132,7 @@ lib.addKeybind({
                 style = {
                     backgroundColor = '#141517',
                     color = '#C1C2C5',
-                    ['.description'] = {
-                      color = '#909296'
-                    }
+                    ['.description'] = {color = '#909296'}
                 },
                 icon = 'ban',
                 iconColor = '#C53030'
@@ -146,7 +140,7 @@ lib.addKeybind({
             inventorySlots.label2 = locale('noslot')
         else
 
-        if not second then   
+            if not second then
                 primary = false
                 RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
                 RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
@@ -154,22 +148,21 @@ lib.addKeybind({
                 inventorySlots.label1 = locale('bigkaliber_off')
                 second = true
                 inventorySlots.label2 = locale('bigsmall_on')
-        else
-            second = false
-            RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-            inventorySlots.label2 = locale('bigsmall_off')
+            else
+                second = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                inventorySlots.label2 = locale('bigsmall_off')
+            end
+        end
     end
-end
-end
 })
-
 
 throw = false
 lib.addKeybind({
     name = '3',
     description = 'Throwables',
     defaultKey = '3',
-    onReleased = function(self)
+    onReleased = function()
         if json.encode(inventorySlots.throwables) == '[]' then
             lib.notify({
                 id = 'noWP',
@@ -179,31 +172,29 @@ lib.addKeybind({
                 style = {
                     backgroundColor = '#141517',
                     color = '#C1C2C5',
-                    ['.description'] = {
-                      color = '#909296'
-                    }
+                    ['.description'] = {color = '#909296'}
                 },
                 icon = 'ban',
                 iconColor = '#C53030'
             })
             inventorySlots.label3 = locale('noslot')
         else
-        if not throw then
-                    primary = false
-                    second = false
-                    RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
-                    RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
-                    inventorySlots.label1 = locale('bigkaliber_off')
-                    inventorySlots.label2 = locale('bigsmall_off')
-                    GiveWeaponToPlayer(inventorySlots.throwables)
-                    throw = true
-                    inventorySlots.label3 = locale('grenade_on')
+            if not throw then
+                primary = false
+                second = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.primaryWeapon)
+                RemoveWeaponFromPed(cache.ped, inventorySlots.secondaryWeapon)
+                inventorySlots.label1 = locale('bigkaliber_off')
+                inventorySlots.label2 = locale('bigsmall_off')
+                GiveWeaponToPlayer(inventorySlots.throwables)
+                throw = true
+                inventorySlots.label3 = locale('grenade_on')
 
-        else
-            throw = false
-            RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
-            inventorySlots.label3 = locale('grenade_off')
+            else
+                throw = false
+                RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
+                inventorySlots.label3 = locale('grenade_off')
+            end
+        end
     end
-end
-end
 })
