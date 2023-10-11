@@ -146,6 +146,7 @@ lib.addKeybind({
                 RemoveWeaponFromPed(cache.ped, inventorySlots.throwables)
                 GiveWeaponToPlayer(inventorySlots.secondaryWeapon)
                 inventorySlots.label1 = locale('bigkaliber_off')
+                inventorySlots.label3 = locale('grenade_off')
                 second = true
                 inventorySlots.label2 = locale('bigsmall_on')
             else
