@@ -1,5 +1,4 @@
 local IsNoClipping      = false
-local PlayerPed         = nil
 local NoClipEntity      = nil
 local Camera            = nil
 local NoClipAlpha       = nil
@@ -176,10 +175,10 @@ RunNoClipThread = function()
             SetLocalPlayerVisibleLocally(true)
             SetEntityAlpha(NoClipEntity, NoClipAlpha, false)
             if PlayerIsInVehicle == 1 then
-                SetEntityAlpha(PlayerPed, NoClipAlpha, false)
+                SetEntityAlpha(cache.ped, NoClipAlpha, false)
             end
-            SetEveryoneIgnorePlayer(PlayerPed, true)
-            SetPoliceIgnorePlayer(PlayerPed, true)
+            SetEveryoneIgnorePlayer(cache.ped, true)
+            SetPoliceIgnorePlayer(cache.ped, true)
         end
         StopNoClip()
     end)
@@ -191,13 +190,13 @@ StopNoClip = function()
     SetEntityVisible(NoClipEntity, true, false)
     SetLocalPlayerVisibleLocally(true)
     ResetEntityAlpha(NoClipEntity)
-    ResetEntityAlpha(PlayerPed)
-    SetEveryoneIgnorePlayer(PlayerPed, false)
-    SetPoliceIgnorePlayer(PlayerPed, false)
+    ResetEntityAlpha(cache.ped)
+    SetEveryoneIgnorePlayer(cache.ped, false)
+    SetPoliceIgnorePlayer(cache.ped, false)
     ResetEntityAlpha(NoClipEntity)
-    SetPoliceIgnorePlayer(PlayerPed, true)
+    SetPoliceIgnorePlayer(cache.ped, true)
 
-    if GetVehiclePedIsIn(PlayerPed, false) ~= 0 then
+    if GetVehiclePedIsIn(cache.ped, false) ~= 0 then
         while (not IsVehicleOnAllWheels(NoClipEntity)) and not IsNoClipping do
             Wait(0)
         end
@@ -224,24 +223,23 @@ end
 
 ToggleNoClip = function(state)
     IsNoClipping = state or not IsNoClipping
-    PlayerPed    = PlayerPedId()
-    PlayerIsInVehicle = IsPedInAnyVehicle(PlayerPed, false)
-    if PlayerIsInVehicle ~= 0 and IsPedDrivingVehicle(PlayerPed, GetVehiclePedIsIn(PlayerPed, false)) then
-        NoClipEntity = GetVehiclePedIsIn(PlayerPed, false)
+    PlayerIsInVehicle = IsPedInAnyVehicle(cache.ped, false)
+    if PlayerIsInVehicle ~= 0 and IsPedDrivingVehicle(cache.ped, GetVehiclePedIsIn(cache.ped, false)) then
+        NoClipEntity = GetVehiclePedIsIn(cache.ped, false)
         SetVehicleEngineOn(NoClipEntity, not IsNoClipping, true, IsNoClipping)
         NoClipAlpha = PedFirstPersonNoClip == true and 0 or 51
     else
-        NoClipEntity = PlayerPed
+        NoClipEntity = cache.ped
         NoClipAlpha = VehFirstPersonNoClip == true and 0 or 51
     end
 
     if IsNoClipping then
-        FreezeEntityPosition(PlayerPed)
+        FreezeEntityPosition(cache.ped)
         SetupCam()
-        PlaySoundFromEntity(-1, "SELECT", PlayerPed, "HUD_LIQUOR_STORE_SOUNDSET", 0, 0)
+        PlaySoundFromEntity(-1, "SELECT", cache.ped, "HUD_LIQUOR_STORE_SOUNDSET", 0, 0)
 
         if not PlayerIsInVehicle then
-            ClearPedTasksImmediately(PlayerPed)
+            ClearPedTasksImmediately(cache.ped)
             if PedFirstPersonNoClip then
                 Wait(1000) -- Wait for the cinematic effect of the camera transitioning into first person 
             end
@@ -256,7 +254,7 @@ ToggleNoClip = function(state)
         SetEntityCoords(NoClipEntity, groundCoords.x, groundCoords.y, groundCoords.z)
         Wait(50)
         DestroyCamera()
-        PlaySoundFromEntity(-1, "CANCEL", PlayerPed, "HUD_LIQUOR_STORE_SOUNDSET", 0, 0)
+        PlaySoundFromEntity(-1, "CANCEL", cache.ped, "HUD_LIQUOR_STORE_SOUNDSET", 0, 0)
     end
     
     --QBCore.Functions.Notify(IsNoClipping and Lang:t("success.noclip_enabled") or Lang:t("success.noclip_disabled"))
@@ -274,16 +272,16 @@ end)
 AddEventHandler('onResourceStop', function(resourceName)
     if resourceName == ResourceName then
         FreezeEntityPosition(NoClipEntity, false)
-        FreezeEntityPosition(PlayerPed, false)
+        FreezeEntityPosition(cache.ped, false)
         SetEntityCollision(NoClipEntity, true, true)
         SetEntityVisible(NoClipEntity, true, false)
         SetLocalPlayerVisibleLocally(true)
         ResetEntityAlpha(NoClipEntity)
-        ResetEntityAlpha(PlayerPed)
-        SetEveryoneIgnorePlayer(PlayerPed, false)
-        SetPoliceIgnorePlayer(PlayerPed, false)
+        ResetEntityAlpha(cache.ped)
+        SetEveryoneIgnorePlayer(cache.ped, false)
+        SetPoliceIgnorePlayer(cache.ped, false)
         ResetEntityAlpha(NoClipEntity)
-        SetPoliceIgnorePlayer(PlayerPed, true)
+        SetPoliceIgnorePlayer(cache.ped, true)
         SetEntityInvincible(NoClipEntity, false)
     end
 end)

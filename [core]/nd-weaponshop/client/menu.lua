@@ -19,7 +19,8 @@ AddEventHandler('koth:openweaponshop', function(cteam)
                     exports.nd_koth_inventory:AddWeaponToInventory(1, "WEAPON_ASSAULTRIFLE")
                     --GiveWeaponToPed(cache.ped, GetHashKey("WEAPON_PISTOL50"), 500, false, true)
                     exports.nd_koth_inventory:AddWeaponToInventory(2, "WEAPON_PISTOL50")
-                SetPedArmour(cache.ped, 100)
+                    SetPedArmour(cache.ped, 100)
+                
                 lib.notify({
                     title = 'Fegyverbolt',
                     description = 'AK-47 Kit megkapva!',
@@ -62,7 +63,7 @@ AddEventHandler('koth:openweaponshop', function(cteam)
 end)
 
 RegisterCommand('test', function()
-    RequestModel(GetHashKey( "a_c_cow"))
+    lib.requestModel(GetHashKey( "a_c_cow"))
     CreatePed(5, GetHashKey( "a_c_cow"), 659.4348,618.0666,128.9108 - 1, 123.1347, false, false)
     while not HasModelLoaded(GetHashKey("a_c_cow")) do
 		Wait( 1 )

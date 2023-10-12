@@ -40,7 +40,7 @@ end)
 local godmode = false
 RegisterNetEvent('nd-adminmenu/togglegodmode', function()
     if godmode == false then
-        SetEntityInvincible(PlayerPedId(), true)
+        SetEntityInvincible(cache.ped, true)
         godmode = true
         lib.notify({
             id = 'godmode1',
@@ -58,7 +58,7 @@ RegisterNetEvent('nd-adminmenu/togglegodmode', function()
             iconColor = 'green'
         })
     else
-        SetEntityInvincible(PlayerPedId(), false)
+        SetEntityInvincible(cache.ped, false)
         godmode = false
         lib.notify({
             id = 'godmode2',
@@ -85,7 +85,7 @@ RegisterNetEvent('nd-adminmenu/spawnVehicle', function()
     Wait(500)
     local input = lib.inputDialog(locale('Vehicle_Spawn'), {locale('spawn_vehicle_model')})
     if not input then return end
-    local x, y, z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 8.0, 0.5))
+    local x, y, z = table.unpack(GetOffsetFromEntityInWorldCoords(cache.ped, 0.0, 8.0, 0.5))
     local veh = input[1] or "adder"
     local vehiclehash = GetHashKey(veh)
     RequestModel(vehiclehash)
@@ -113,7 +113,7 @@ RegisterNetEvent('nd-adminmenu/spawnVehicle', function()
                 break
             end
         end
-        CreateVehicle(vehiclehash, x, y, z, GetEntityHeading(PlayerPedId()) + 90, 1, 0)
+        CreateVehicle(vehiclehash, x, y, z, GetEntityHeading(cache.ped) + 90, 1, 0)
     end)
     lib.showMenu('vehiclemenu')
 end)
@@ -121,11 +121,8 @@ end)
 
 --Vehicle deleter
 RegisterNetEvent('nd-adminmenu/deleteVehicle', function()
-    local playerPed = PlayerPedId()
     local vehicle = nil
-
-    local ped = PlayerPedId()
-    local veh = GetVehiclePedIsUsing(ped)
+    local veh = GetVehiclePedIsUsing(cache.ped)
     if veh ~= 0 then
         SetEntityAsMissionEntity(veh, true, true)
         DeleteVehicle(veh)
@@ -149,7 +146,7 @@ RegisterNetEvent('nd-adminmenu/deleteVehicle', function()
             lib.showMenu('adminmenu')
         end
     else
-        local pcoords = GetEntityCoords(ped)
+        local pcoords = GetEntityCoords(cache.ped)
         local vehicles = GetGamePool('CVehicle')
         for _, v in pairs(vehicles) do
             if #(pcoords - GetEntityCoords(v)) <= 5.0 then
@@ -183,7 +180,6 @@ end)
 RegisterNetEvent('nd-adminmenu/spectateplayer', function()
     local input = lib.inputDialog(locale('spectate'), {locale('spectate_id')})
     if not input then return end
-    local myPed = PlayerPedId()
     local target = GetPlayerPed(input[1])
     local myServerId = GetPlayerServerId(PlayerId())
     if input[1] == source then
@@ -262,9 +258,8 @@ end)
 
 RegisterNetEvent('nd-adminmenu/repairVehicle')
 AddEventHandler('nd-adminmenu/repairVehicle', function()
-    local playerPed = GetPlayerPed(-1)
-    local vehicle = GetVehiclePedIsIn(playerPed, false)
-    local coords = GetEntityCoords(playerPed)
+    local vehicle = GetVehiclePedIsIn(cache.ped, false)
+    local coords = GetEntityCoords(cache.ped)
     local nearbyVehicle = GetClosestVehicle(coords.x, coords.y, coords.z, 3.0, 0, 70)
 
     if vehicle ~= nil and vehicle ~= 0 then
@@ -440,7 +435,7 @@ end)
 
 local isinvis = false
 RegisterNetEvent('nd-adminmenu/invisible/client', function()
-    NoClipEntity = PlayerPedId(source)
+    NoClipEntity = PlayerPedId(source)    ---- why source?  
     PlayerPed = GetPlayerPed(source)
 if isinvis == false then
     isinvis = true
@@ -465,8 +460,8 @@ end)
 
 
 RegisterCommand("coord", function()
-    coords = GetEntityCoords(PlayerPedId())
-    head = GetEntityHeading(PlayerPedId())
+    coords = GetEntityCoords(cache.ped)
+    head = GetEntityHeading(cache.ped)
     lib.setClipboard('' .. coords.x .. ', ' .. coords.y .. ', ' .. coords.z .. ', ' .. head)
     lib.notify({
       title = locale('menu_title'),
@@ -520,7 +515,7 @@ CreateThread(function()
     while showids do
         for _, id in ipairs(GetActivePlayers()) do
             local targetPed = GetPlayerPed(id)
-            if targetPed ~= PlayerPedId() then
+            if targetPed ~= cache.ped then
                 if playerDistances[id] then
                     if playerDistances[id] < disPlayerNames then
                         local targetPedCords = GetEntityCoords(targetPed)
@@ -540,12 +535,11 @@ end)
 
 CreateThread(function()
     while true do
-        local playerPed = PlayerPedId()
-        local playerCoords = GetEntityCoords(playerPed)
+        local playerCoords = GetEntityCoords(cache.ped)
         
         for _, id in ipairs(GetActivePlayers()) do
             local targetPed = GetPlayerPed(id)
-            if targetPed ~= playerPed then
+            if targetPed ~= cache.ped then
                 local distance = #(playerCoords-GetEntityCoords(targetPed))
 				playerDistances[id] = distance
             end

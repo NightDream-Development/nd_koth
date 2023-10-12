@@ -10,7 +10,7 @@ files {
   'locales/hu.json',
   'locales/en.json',
 }
---Both server and client sided scripts
+
 shared_script {
   '@ox_lib/init.lua',
   'shared/*.lua',
