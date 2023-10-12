@@ -3,7 +3,7 @@
   "went_wrong": "Something went wrong",
 
   "header": "You are dead",
-  "description": "Ambulances were notified",
+  "description": "You will respawn shortly",
 
   "respawn_header": "Ambulance",
   "respawn_description": "You woke up at the %s",
