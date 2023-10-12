@@ -65,6 +65,6 @@ RegisterCommand('test', function()
     RequestModel(GetHashKey( "a_c_cow"))
     CreatePed(5, GetHashKey( "a_c_cow"), 659.4348,618.0666,128.9108 - 1, 123.1347, false, false)
     while not HasModelLoaded(GetHashKey("a_c_cow")) do
-		Citizen.Wait( 1 )
+		Wait( 1 )
 	end
 end)

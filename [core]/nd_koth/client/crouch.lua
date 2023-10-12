@@ -22,7 +22,7 @@ end
 
 SetupCrouch = function()
 	while not HasAnimSetLoaded('move_ped_crouched') do
-		Citizen.Wait(5)
+		Wait(5)
 		RequestAnimSet('move_ped_crouched')
 	end
 end
@@ -83,7 +83,7 @@ CrouchLoop = function()
 			NormalWalk()
 		end
 
-		Citizen.Wait(5)
+		Wait(5)
 	end
 	NormalWalk()
 	RemoveCrouchAnim()

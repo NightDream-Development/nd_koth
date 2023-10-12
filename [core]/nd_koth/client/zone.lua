@@ -9,9 +9,9 @@ function IsPlayerInRadius(playerCoords, checkCoords, radius)
     return distance <= radius
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(2000)
+        Wait(2000)
 
         local playerPed = PlayerPedId()
         local playerCoords = GetEntityCoords(playerPed)
@@ -26,9 +26,9 @@ end)
 
 local previousInRadius = false
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(2000)
+        Wait(2000)
         if inradius ~= previousInRadius then
             previousInRadius = inradius
             if inradius then

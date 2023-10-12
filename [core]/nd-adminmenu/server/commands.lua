@@ -55,8 +55,8 @@ end)
 
 
 
-Citizen.CreateThread(function()
-	Citizen.Wait(5000)
+CreateThread(function()
+	Wait(5000)
     local resName = GetCurrentResourceName()
 
 		print("^2["..resName.."] - NightDream Developments - Advanced Admin Menu.")
