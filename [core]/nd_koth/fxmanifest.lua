@@ -16,7 +16,7 @@ client_scripts {
   'client/save_zones/*lua',
 }
 
---Both server and client sided scripts
+
 shared_script {
   '@ox_lib/init.lua',
   'shared/*.lua'
