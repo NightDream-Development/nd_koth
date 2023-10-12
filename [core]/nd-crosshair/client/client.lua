@@ -1,20 +1,18 @@
 CreateThread(
     function()
         while true do
-            Wait(0)
+            Wait(100) -- Increase the Wait time to 100 milliseconds for better performance
+            
             if IsPedArmed(cache.ped, 4 | 2) then
-                if (IsPlayerFreeAiming(cache.ped)) then
-                    --print(IsPlayerFreeAiming(cache.ped))
+                local isPlayerFreeAiming = IsPlayerFreeAiming(cache.ped) -- Avoid repeated function calls
+                
+                if isPlayerFreeAiming then
                     SendNUIMessage({display = "crosshairShow"})
-                    Wait(100)
                 else
-                    --print(IsPlayerFreeAiming(cache.ped))
                     SendNUIMessage({display = "crosshairHide"})
-                    Wait(100)
                 end
             else
                 SendNUIMessage({display = "crosshairHide"})
-                Wait(100)
             end
         end
     end
