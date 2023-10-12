@@ -1,20 +1,18 @@
+const repoURL = "https://api.github.com/repos/NightDream-Development/nd_koth/commits/main";
 
-const rawTextURL = "https://raw.githubusercontent.com/e";
-
-
-async function fetchAndDisplayText() {
+async function fetchAndDisplayCommitID() {
   try {
-    const response = await fetch(rawTextURL);
+    const response = await fetch(repoURL);
     if (response.ok) {
-      const text = await response.text();
-      document.getElementById("textFromGitHub").textContent = text;
+      const commitData = await response.json();
+      const latestCommitID = commitData.sha;
+      document.getElementById("commitID").textContent = latestCommitID;
     } else {
-      document.getElementById("textFromGitHub").textContent = "Ez a szerver korai alfában van, minden folyamatban lévő munka!";
+      document.getElementById("commitID").textContent = "Failed to fetch commit ID.";
     }
   } catch (error) {
-    document.getElementById("textFromGitHub").textContent = "Ez a szerver korai alfában van, minden folyamatban lévő munka!";
+    document.getElementById("commitID").textContent = "Error occurred while fetching commit ID.";
   }
 }
 
-
-fetchAndDisplayText();
+fetchAndDisplayCommitID();

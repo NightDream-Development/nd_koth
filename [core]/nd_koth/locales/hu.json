@@ -1,0 +1,18 @@
+{
+ "zone_title": "Zóna",
+ "zone_none": "Nincs senki a zónában!",
+ "zone_red": "Piros csapat átvette a zónát!",
+ "zone_green": "Zöld csapat átvette a zónát!",
+ "zone_blue": "Kék csapat átvette a zónát!",
+ "zone_entered": "Beléptél a zónába!",
+ "zone_left": "Elhagytad a zónát!",
+
+ "safezone_title": "Védett zóna",
+ "safezone_off": "Elhagytad a zónát!",
+ "safezone_on": "Beléptél a zónába!",
+
+ "chose_team": "Válassz csapatot!",
+ "chose_red": "Piros Csapat",
+ "chose_green": "Zöld Csapat",
+ "chose_blue": "Kék Csapat"
+}

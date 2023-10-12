@@ -71,7 +71,6 @@ end
 
 function spawnheli(model, team)
     team = exports.nd_koth:getteam()
-    local playerPed = PlayerPedId()
     RequestModel(model)
     while not HasModelLoaded(model) do
         Citizen.Wait(0)
@@ -87,7 +86,18 @@ function spawnheli(model, team)
         -- Handle an invalid team value here, if necessary
         return
     end
-    SetPedIntoVehicle(playerPed, vehicle, -1)
+    SetPedIntoVehicle(cache.ped, vehicle, -1)
     SetVehicleAsNoLongerNeeded(vehicle)
     SetModelAsNoLongerNeeded(model)
+    local vehicle = GetVehiclePedIsIn(cache.ped, false)
+    local speed = 15.0
+
+    if vehicle ~= 0 then
+        local coords = GetEntityCoords(vehicle)
+        local forwardVector = GetOffsetFromEntityInWorldCoords(vehicle, 0.0, 10.0, 0.0)
+        local upVector = GetOffsetFromEntityInWorldCoords(vehicle, 0.0, 0.0, 10.0)
+
+        SetEntityVelocity(vehicle, (forwardVector - coords) * speed)
+        SetEntityVelocity(vehicle, (upVector - coords) * speed)
+    end 
 end
