@@ -1,0 +1,15 @@
+{
+    "no_wpslot": "Er is geen wapen in deze slot!",
+    "no_grslot": "Er is geen granaat in deze slot!",
+    "noslot": "Geen wapen in slot",
+    
+    "bigkaliber_on": "Primaire wapen - In de hand",
+    "bigkaliber_off": "Primaire wapen - In de zak",
+    
+    "bigsmall_on": "Secundair wapen - In de hand",
+    "bigsmall_off": "Secundair wapen - In de zak",
+    
+    "grenade_on": "Secundair wapen - In de hand",
+    "grenade_off": "Secundair wapen - In de zak"
+
+}
