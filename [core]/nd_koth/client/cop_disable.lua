@@ -5,7 +5,7 @@ function DisableCopHUDAndWantedSystem()
     SetPlayerWantedLevelNoDrop(PlayerId(), 0, false)
 end
 
-Citizen.CreateThread(function()
-    Citizen.Wait(100)
+CreateThread(function()
+    Wait(100)
     DisableCopHUDAndWantedSystem()
 end)
