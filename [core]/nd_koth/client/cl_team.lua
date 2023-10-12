@@ -96,5 +96,8 @@ CreateThread(function()
 end)
 
 function devprint(name, text)
-    print('[' .. name .. ']: ' .. text)
+   -- print('[' .. name .. ']: ' .. text)
+   --Use lib to print for performance suggested by StrixLuca
+   --We use mostly info to devprint so it sghould be good!
+   lib.print.info(text)
 end
