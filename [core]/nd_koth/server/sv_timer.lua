@@ -18,3 +18,7 @@ CreateThread(function()
         os.exit()
     end
 end)
+
+
+
+lib.versionCheck(NightDream-Development/nd_koth)

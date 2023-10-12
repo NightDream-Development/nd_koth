@@ -39,7 +39,6 @@ end)
 CreateThread(function()
 	while true do
 		if IsPedArmed(cache.ped, 4) ~= false then
-			local ped = PlayerPedId()
 			if IsPedShooting(cache.ped) and not IsPedDoingDriveby(cache.ped) then
 				local _, wep = GetCurrentPedWeapon(cache.ped)
 				_, cAmmo = GetAmmoInClip(cache.ped, wep)

@@ -2,8 +2,8 @@ CreateThread(
     function()
         while true do
             Wait(0)
-            if IsPedArmed(PlayerPedId(), 4 | 2) then
-                if (IsPlayerFreeAiming(PlayerId())) then
+            if IsPedArmed(cache.ped, 4 | 2) then
+                if (IsPlayerFreeAiming(cache.ped)) then
                     SendNUIMessage({display = "crosshairShow"})
                     Wait(100)
                 else

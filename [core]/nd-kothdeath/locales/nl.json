@@ -1,0 +1,23 @@
+{
+  "user_not_found": "Speler niet gevonden ID: %s",
+  "went_wrong": "Er is iets misgegaan",
+  
+  "header": "Je bent dood",
+  "description": "Je zult binnenkort respawnen",
+  
+  "respawn_header": "Ambulance",
+  "respawn_description": "Je werd wakker bij de %s",
+  
+  "admin_revive": "Speler(s) weer tot leven brengen",
+  "revive_id": "Speler-ID of allemaal",
+  "not_dead": "De speler is niet dood ID: %s",
+  "got_revived": "Je bent weer tot leven gebracht door een beheerder",
+  
+  "all_header": "Iedereen weer tot leven brengen",
+  "all_content": "Wil je iedereen weer tot leven brengen?",
+  
+  "admin_kill": "Speler doden",
+  "kill_id": "Speler-ID",
+  "already_dead": "De speler is al dood ID: %s",
+  "got_killed": "Je bent gedood door een beheerder"
+}

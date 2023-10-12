@@ -10,7 +10,7 @@ zoneteam = Senki
 
 RegisterNetEvent('koth:ui:kingupdate')
 AddEventHandler('koth:ui:kingupdate', function(team)
-	print('[koth:ui] Team with most players in the zone: ' ..team )
+    lib.print.info("[koth:ui] Team with most players in the zone: ", team)   ---- first test 
     SendNUIMessage({
         kingteam = team
     })
@@ -21,6 +21,7 @@ end)
 RegisterNetEvent('koth:ui:teamnum')
 AddEventHandler('koth:ui:teamnum', function(red, green, blue)
 	print('[koth:ui] Players in the zone red: '..red.. ' green: ' ..green.. ' blue:' ..blue)
+
     SendNUIMessage({
         team1 = red,
         team2 = blue,
