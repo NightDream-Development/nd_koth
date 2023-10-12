@@ -7,11 +7,11 @@ function IsPlayerInCombatZone(playerCoords)
     local distance = #(playerCoords - combatZoneCenter)
     return distance <= combatZoneRadius
 end
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         --print(sourceteam)
         if sourceteam == 'blue' then
-        Citizen.Wait(2000) -- Adjust the interval as needed
+        Wait(2000) -- Adjust the interval as needed
 
         local playerId = PlayerId()
         local playerPed = GetPlayerPed(playerId)

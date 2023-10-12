@@ -93,7 +93,7 @@ RegisterNetEvent('nd-adminmenu/spawnVehicle', function()
         local waiting = 0
         while not HasModelLoaded(vehiclehash) do
             waiting = waiting + 100
-            Citizen.Wait(100)
+            Wait(100)
             if waiting > 5000 then
                 -- lib.notify({
                 --     id = 'admincarnothingerror1',
@@ -515,7 +515,7 @@ local function DrawText3D(position, text, r,g,b)
     end
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	Wait(500)
     while showids do
         for _, id in ipairs(GetActivePlayers()) do
@@ -534,11 +534,11 @@ Citizen.CreateThread(function()
                 end
             end
         end
-        Citizen.Wait(0)
+        Wait(0)
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         local playerPed = PlayerPedId()
         local playerCoords = GetEntityCoords(playerPed)

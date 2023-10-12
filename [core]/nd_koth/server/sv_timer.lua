@@ -1,6 +1,6 @@
-Citizen.CreateThread(function()
+CreateThread(function()
     while Config.MatchRound > 0 do
-        Citizen.Wait(1000)
+        Wait(1000)
         
         Config.MatchRound = Config.MatchRound - 1
         

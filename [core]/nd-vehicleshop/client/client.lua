@@ -50,7 +50,7 @@ function spawnveh(model)
     local playerPed = PlayerPedId()
     RequestModel(model)
     while not HasModelLoaded(model) do
-        Citizen.Wait(0)
+        Wait(0)
     end
     --print(team)
     if team == "red" then
@@ -73,7 +73,7 @@ function spawnheli(model, team)
     team = exports.nd_koth:getteam()
     RequestModel(model)
     while not HasModelLoaded(model) do
-        Citizen.Wait(0)
+        Wait(0)
     end
     local vehicle
     if team == "red" then

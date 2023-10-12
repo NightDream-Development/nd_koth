@@ -70,9 +70,9 @@ RegisterNuiCallback("time_expired", function(data)
     dead = false
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(500)
+        Wait(500)
         local health = GetEntityHealth(cache.ped)
         if health <= 0 then
             if not dead then

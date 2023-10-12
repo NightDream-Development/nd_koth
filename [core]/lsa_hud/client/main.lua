@@ -1,5 +1,5 @@
 
-Citizen.CreateThread(function()
+CreateThread(function()
     Wait(500)
     SetHudComponentPosition(6, 999999.0, 999999.0)
     SetHudComponentPosition(7, 999999.0, 999999.0)

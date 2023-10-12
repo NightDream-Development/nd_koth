@@ -44,9 +44,9 @@ CreateThread(function()
     lib.showContext('join_menu')
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
         local playerPed = GetPlayerPed(-1)
         local playerLocalisation = GetEntityCoords(playerPed)
         ClearAreaOfCops(playerLocalisation.x, playerLocalisation.y, playerLocalisation.z, 400.0)

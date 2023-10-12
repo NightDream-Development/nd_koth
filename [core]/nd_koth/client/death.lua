@@ -61,9 +61,9 @@ CreateThread(function()
 end)
 
 --removed koth death
--- Citizen.CreateThread(function()
+-- CreateThread(function()
 --     while true do
---         Citizen.Wait(500)
+--         Wait(500)
 --         local health = GetEntityHealth(cache.ped)
 --         if health <= 0 then
 --             Wait(1000)
