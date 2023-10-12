@@ -1,0 +1,18 @@
+{
+    "zone_title": "Zone",
+    "zone_none": "Er is geen koning van de heuvel!",
+    "zone_red": "Rood team heeft de zone overgenomen!",
+    "zone_green": "Groen team heeft de zone overgenomen!",
+    "zone_blue": "Blauw team heeft de zone overgenomen!",
+    "zone_entered": "Je bent de zone binnengegaan!",
+    "zone_left": "Je hebt de zone verlaten!",
+    
+    "safezone_title": "Veilige zone",
+    "safezone_off": "Je hebt de veilige zone verlaten!",
+    "safezone_on": "Je bent in de veilige zone!",
+    
+    "chose_team": "Kies een team!",
+    "chose_red": "Rood Team",
+    "chose_green": "Groen Team",
+    "chose_blue": "Blauw Team"
+}
