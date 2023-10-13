@@ -47,7 +47,7 @@ end)
 
 function spawnveh(model)
     team = exports.nd_koth:getteam()
-    RequestModel(model)
+    lib.requestModel(model)
     while not HasModelLoaded(model) do
         Wait(0)
     end
@@ -70,7 +70,7 @@ end
 
 function spawnheli(model, team)
     team = exports.nd_koth:getteam()
-    RequestModel(model)
+    lib.requestModel(model)
     while not HasModelLoaded(model) do
         Wait(0)
     end
