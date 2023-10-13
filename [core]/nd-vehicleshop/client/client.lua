@@ -1,3 +1,4 @@
+
 RegisterNetEvent('koth:openvehiclehop')
 AddEventHandler('koth:openvehiclehop', function(cteam)
     lib.registerContext({
@@ -43,6 +44,7 @@ AddEventHandler('koth:openvehiclehop', function(cteam)
 end)
 
 function spawnVehicle(model, team, isHeli)
+    team = exports.nd_koth:getteam() ---- only if we need
     lib.requestModel(model)
     while not HasModelLoaded(model) do
         Wait(0)
