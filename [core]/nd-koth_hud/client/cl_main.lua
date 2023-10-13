@@ -20,8 +20,7 @@ end)
 
 RegisterNetEvent('koth:ui:teamnum')
 AddEventHandler('koth:ui:teamnum', function(red, green, blue)
-	print('[koth:ui] Players in the zone red: '..red.. ' green: ' ..green.. ' blue:' ..blue)
-
+lib.print.warn('[koth:ui] Players in the zone red: ' ..red.. ' green: ' ..green.. ' blue: ' ..blue)
     SendNUIMessage({
         team1 = red,
         team2 = blue,
