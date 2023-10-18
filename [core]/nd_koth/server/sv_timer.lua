@@ -1,3 +1,11 @@
+function formatDigit(digit)
+    if digit < 10 then
+        return "0" .. tostring(digit)
+    else
+        return tostring(digit)
+    end
+end
+
 CreateThread(function()
     while Config.MatchRound > 0 do
         Wait(1000)
@@ -6,8 +14,9 @@ CreateThread(function()
         
         local minutes = math.floor(Config.MatchRound / 60)
         local seconds = Config.MatchRound % 60
-        print(minutes..':'..seconds)
-        TriggerClientEvent('koth:ui:timeupdate', -1, minutes..':'..seconds)
+        local formattedTime = formatDigit(minutes) .. ':' .. formatDigit(seconds)
+        print(formattedTime)
+        TriggerClientEvent('koth:ui:timeupdate', -1, formattedTime)
     end
     TriggerClientEvent('koth:ui:timeupdate', -1, 'A meccs végetért!')
     TriggerClientEvent('koth:ui:endmatchscrn', -1)
@@ -18,6 +27,3 @@ CreateThread(function()
         os.exit()
     end
 end)
-
-
-
