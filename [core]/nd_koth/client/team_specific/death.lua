@@ -39,35 +39,3 @@ AddEventHandler('koth:revive', function(cteam)
         end
     end
 end)
-
---XP for killing
-cooldown = false
-CreateThread(function()
-    while true do
-        Wait(200)
-        if not cooldown then
-            --devprint('xpshoot', 'Checking..')
-        if IsPedShooting(cache.ped) then
-            devprint('xpshoot', 'Given 150 xp for shooting')
-            TriggerServerEvent('koth:givexp', 'shooting', 150)
-            cooldown = true
-            devprint('xpshoot', 'cooldown has been enabled')
-            Wait(120000)
-            cooldown = false
-            devprint('xpshoot', 'cooldown has been disabled')
-        end
-    end
-    end
-end)
-
---removed koth death
--- CreateThread(function()
---     while true do
---         Wait(500)
---         local health = GetEntityHealth(cache.ped)
---         if health <= 0 then
---             Wait(1000)
---             TriggerEvent('koth:revive')
---         end
---     end
--- end)

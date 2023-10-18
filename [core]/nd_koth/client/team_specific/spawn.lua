@@ -43,12 +43,3 @@ CreateThread(function()
     TriggerServerEvent('koth:join')
     lib.showContext('join_menu')
 end)
-
-CreateThread(function()
-    while true do
-        Wait(0)
-        local playerPed = GetPlayerPed(-1)
-        local playerLocalisation = GetEntityCoords(playerPed)
-        ClearAreaOfCops(playerLocalisation.x, playerLocalisation.y, playerLocalisation.z, 400.0)
-    end
-end)

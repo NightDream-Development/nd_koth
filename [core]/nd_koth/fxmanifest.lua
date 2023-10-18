@@ -10,10 +10,14 @@ files {
 
 --Client sided scripts
 client_scripts {
-  'client/*.lua',
+  'client/func.lua',
   'client/ui.lua',
+  'client/xp.lua',
+  'client/zone.lua',
+  'client/save_zones/*.lua',
+  'client/standalone/*.lua',
   'client/target/*.lua',
-  'client/save_zones/*lua',
+  'client/team_specific/*.lua',
 }
 
 
