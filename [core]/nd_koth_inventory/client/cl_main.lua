@@ -15,9 +15,8 @@ AddEventHandler("updateInventory", function(updatedInventory)
 end)
 
 CreateThread(function()
-    SetNuiFocus(false, false)
     while true do
-        Wait(100)
+        Wait(1000)
         -- Update the UI with the latest inventory data
         SendNUIText("updateInventory", inventorySlots)
 
@@ -26,9 +25,8 @@ end)
 
 CreateThread(function()
     while true do
-        Wait(0)
-        DisableControlAction(0, 37, true)
-        HideHudComponentThisFrame(19) -- Weapon wheel
+        Wait(100)
+        lib.disableControls:Remove(37)
     end
 end)
 
