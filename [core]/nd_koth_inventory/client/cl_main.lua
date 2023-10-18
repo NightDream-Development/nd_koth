@@ -25,8 +25,10 @@ end)
 
 CreateThread(function()
     while true do
-        Wait(100)
-        lib.disableControls:Remove(37)
+        Wait(10)
+        --BlockWeaponWheelThisFrame()
+        DisableControlAction(0, 37, true)
+        DisableControlAction(0, 199, true) 
     end
 end)
 
