@@ -60,11 +60,11 @@ RegisterNetEvent('nd-adminmenu/openmenu', function()
             TriggerEvent('nd-adminmenu/spectateplayer')
         elseif selected == 5 then
             TriggerEvent('nd-adminmenu/annountcmentsender')
+        --elseif selected == 6 then
+            --TriggerEvent('nd-adminmenu/banplayer/client')
         elseif selected == 6 then
-            TriggerEvent('nd-adminmenu/banplayer/client')
-        elseif selected == 7 then
             TriggerEvent('nd-adminmenu/revive/client')
-        elseif selected == 8 then
+        elseif selected == 7 then
             TriggerEvent('nd-adminmenu/invisible/client')
             lib.showMenu('playermenu')
         end
@@ -76,9 +76,6 @@ RegisterNetEvent('nd-adminmenu/openmenu', function()
         id = 'adminmenu',
         title = locale('menu_title'),
         position = 'top-right',
-        onClose = function(keyPressed)
-            print('Menü bezárva')
-        end,
         options = {
             {label = locale('vehicle_options'), description = locale('vehicle_options_desc'), menuId = 'vehiclemenu'},
             {label = locale('player_options'), description = locale('player_options_desc'), menuId = 'playermenu'},
@@ -91,9 +88,9 @@ RegisterNetEvent('nd-adminmenu/openmenu', function()
         end        
     end)
     loaded = true
-    print('UI Loaded to ox_Lib')
+     lib.print.info('UI Loaded to ox_Lib')
 else
-    print('moving to opening')
+     lib.print.info('moving to opening')
 end
     lib.showMenu('adminmenu')
 end)
@@ -103,7 +100,7 @@ end)
      description = locale('keybind_name'),
      defaultKey = Config.menukeybind,
      onReleased = function()
-        print(Config.menucommand)
+         --lib.print.info(Config.menucommand)
         ExecuteCommand(Config.menucommand)
         --TriggerEvent('nd-adminmenu/openmenu')
      end,

@@ -83,7 +83,7 @@ CrouchLoop = function()
 			NormalWalk()
 		end
 
-		Wait(5)
+		Wait(50)
 	end
 	NormalWalk()
 	RemoveCrouchAnim()

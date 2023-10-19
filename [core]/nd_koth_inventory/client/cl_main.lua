@@ -55,6 +55,7 @@ exports("AddWeaponToInventory", function(what, weaponName)
     elseif what == 3 then
         inventorySlots.throwables = weaponName
     end
+    lib.print.info('Given an item:', what, weaponName)
 
     TriggerEvent("updateInventory", inventorySlots)
 end)
@@ -69,6 +70,7 @@ exports("removeinv", function()
     inventorySlots.label1 = locale('noslot')
     inventorySlots.label2 = locale('noslot')
     inventorySlots.label3 = locale('noslot')
+    lib.print.info('Removed every item form 1 2 3 4')
 end)
 
 -- keybinds

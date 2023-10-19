@@ -35,7 +35,7 @@ CreateThread(function()
 				end
 			end
 		else
-			Wait(100)
+			Wait(1000)
 		end
 		Wait(10)
 	end

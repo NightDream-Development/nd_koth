@@ -27,3 +27,11 @@ CreateThread(function()
         end
     end
 end)
+
+AddEventHandler('onResourceStop', function(resourceName)
+    if GetCurrentResourceName() == resourceName then
+        lib.print.info('The script crashed or has been shutdown!')
+        lib.print.info('Removed player from radio!')
+        exports ['pma-voice']:setRadioChannel(0)
+    end
+end)
