@@ -1,7 +1,7 @@
 CreateThread(
     function()
         while true do
-            Wait(100) -- Increase the Wait time to 100 milliseconds for better performance
+            Wait(10) -- Increase the Wait time to 100 milliseconds for better performance
             
             if IsPedArmed(cache.ped, 4 | 2) then
                 local isPlayerFreeAiming = IsPlayerFreeAiming(cache.ped) -- Avoid repeated function calls
